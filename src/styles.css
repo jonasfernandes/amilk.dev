@@ -38,7 +38,7 @@
 
 body {
   @apply m-0;
-  font-family: "Proxima Nova Light", sans-serif;
+  font-family: "Proxima Nova", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -49,12 +49,12 @@ body {
 
 :root {
   --background: #ffffff;
-  --foreground: #000000;
-  --primary: #79A542;
+  --foreground: #3f3f46;
+  --primary: #79a542;
 }
 
 .dark {
-  --background: #0f0f0f;
+  --background: #18181b;
   --foreground: #ffffff;
   --primary: #03004C;
 }
