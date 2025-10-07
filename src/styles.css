@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+
 @font-face {
   font-family: 'Major Mono';
   src: url('./assets/fonts/major-mono/regular.woff2') format('woff2'),
@@ -50,13 +53,13 @@ body {
 :root {
   --background: #ffffff;
   --foreground: #3f3f46;
-  --primary: #79a542;
+  --primary: #3f3f46;
 }
 
 .dark {
   --background: #18181b;
   --foreground: #ffffff;
-  --primary: #03004C;
+  --primary: #89A069;
 }
 
 @theme {
