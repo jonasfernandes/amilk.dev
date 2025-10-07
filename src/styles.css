@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Major Mono';
+  src: url('./assets/fonts/major-mono/regular.woff2') format('woff2'),
+      url('./assets/fonts/major-mono/regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Proxima Nova Light';
+  src: url('./assets/fonts/proxima-nova/light.woff2') format('woff2'),
+      url('./assets/fonts/proxima-nova/light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('./assets/fonts/proxima-nova/regular.woff2') format('woff2'),
+      url('./assets/fonts/proxima-nova/regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Proxima Nova Bold';
+  src: url('./assets/fonts/proxima-nova/bold.woff2') format('woff2'),
+      url('./assets/fonts/proxima-nova/bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  @apply m-0;
+  font-family: "Proxima Nova Light", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-image: url(./assets/images/noise.png);
+  background-size: 200px 200px;
+  background-position: 0 0;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  --primary: #79A542;
+}
+
+.dark {
+  --background: #0f0f0f;
+  --foreground: #ffffff;
+  --primary: #03004C;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+}

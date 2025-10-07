@@ -1,5 +1,12 @@
 node_modules
 .DS_Store
-.idea
-bundle.*
-npm-debug.log
+dist
+dist-ssr
+*.local
+count.txt
+.env
+.nitro
+.tanstack
+.output
+.vinxi
+todos.json
