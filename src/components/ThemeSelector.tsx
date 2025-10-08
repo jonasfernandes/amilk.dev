@@ -6,7 +6,8 @@ import { LocalStorage } from "@/utils/localStorage";
 import { storageKeys } from "@/utils/constants/storageKeys";
 
 export default function ThemeSelector() {
-  const [theme, setTheme] = useState(LocalStorage.get(storageKeys.THEME) ?? 'dark')
+  const [theme, setTheme] = useState('')
+  const [hasMounted, setHasMounted] = useState(false);
 
   function updateTheme() {
     setTheme(theme === 'dark' ? 'light' : 'dark')
@@ -21,8 +22,27 @@ export default function ThemeSelector() {
       document.documentElement.classList.remove('dark')
     }
 
-    LocalStorage.set(storageKeys.THEME, theme === 'dark' ? 'dark' : 'light')
+    if (theme) {
+      LocalStorage.set(storageKeys.THEME, theme === 'dark' ? 'dark' : 'light')
+    }
   }, [theme])
+
+  useEffect(() => {
+    const localTheme = LocalStorage.get(storageKeys.THEME)
+
+    if (localTheme) {
+      setTheme(localTheme)
+    }
+
+    setHasMounted(true)
+  }, []);
+
+  if (!hasMounted)
+    return (
+      <span className="p-2">
+        <span className="flex animate-pulse w-[22px] h-[22px] rounded-full bg-foreground/10 border border-foreground/30"></span>
+      </span>
+    );
 
   return (
     <button
