@@ -5,7 +5,7 @@ import MoonIcon from "@/assets/icons/moon";
 import { LocalStorage } from "@/utils/localStorage";
 import { storageKeys } from "@/utils/constants/storageKeys";
 
-export default function Theme() {
+export default function ThemeSelector() {
   const [theme, setTheme] = useState(LocalStorage.get(storageKeys.THEME) ?? 'dark')
 
   function updateTheme() {

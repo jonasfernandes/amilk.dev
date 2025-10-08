@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
-import Theme from './Theme';
+import ThemeSelector from './ThemeSelector';
+import MyLink from './Link';
 
 export default function Header() {
 
@@ -9,17 +10,12 @@ export default function Header() {
         <Link to="/" className='font-[Major_Mono] text-xl'>Amilk</Link>
       </div>
 
-      <nav className="flex flex-row">
-        <div className="px-2">
-          <Link to="/demo/start/server-funcs">about</Link>
-        </div>
-
-        <div className="px-2">
-          <Link to="/demo/start/api-request">contact</Link>
-        </div>
+      <nav className="flex flex-row gap-6">
+        <MyLink to="/demo/start/server-funcs">about</MyLink>
+        <MyLink to="/demo/start/api-request">contact</MyLink>
       </nav>
 
-      <Theme />
+      <ThemeSelector />
     </header>
   )
 }
