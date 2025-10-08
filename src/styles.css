@@ -6,7 +6,7 @@
 @font-face {
   font-family: 'Major Mono';
   src: url('./assets/fonts/major-mono/regular.woff2') format('woff2'),
-      url('./assets/fonts/major-mono/regular.woff') format('woff');
+    url('./assets/fonts/major-mono/regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -15,7 +15,7 @@
 @font-face {
   font-family: 'Proxima Nova Light';
   src: url('./assets/fonts/proxima-nova/light.woff2') format('woff2'),
-      url('./assets/fonts/proxima-nova/light.woff') format('woff');
+    url('./assets/fonts/proxima-nova/light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -24,7 +24,7 @@
 @font-face {
   font-family: 'Proxima Nova';
   src: url('./assets/fonts/proxima-nova/regular.woff2') format('woff2'),
-      url('./assets/fonts/proxima-nova/regular.woff') format('woff');
+    url('./assets/fonts/proxima-nova/regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -33,7 +33,7 @@
 @font-face {
   font-family: 'Proxima Nova Bold';
   src: url('./assets/fonts/proxima-nova/bold.woff2') format('woff2'),
-      url('./assets/fonts/proxima-nova/bold.woff') format('woff');
+    url('./assets/fonts/proxima-nova/bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -53,17 +53,24 @@ body {
 :root {
   --background: #ffffff;
   --foreground: #3f3f46;
-  --primary: #3f3f46;
+  --foreground-2: #5D5D68;
+  --primary: #2A71D2;
 }
 
 .dark {
   --background: #18181b;
   --foreground: #ffffff;
-  --primary: #89A069;
+  --foreground-2: #dddddd;
+  --primary: #2A71D2;
+  /* #89A069 */
+  /* #FFDA3B */
+  /* #F29FB3 */
+  /* #2A71D2 */
 }
 
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-foreground-2: var(--foreground-2);
   --color-primary: var(--primary);
 }
