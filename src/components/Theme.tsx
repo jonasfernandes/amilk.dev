@@ -6,18 +6,11 @@ import { LocalStorage } from "@/utils/localStorage";
 import { storageKeys } from "@/utils/constants/storageKeys";
 
 export default function Theme() {
-  const [theme, setTheme] = useState('')
+  const [theme, setTheme] = useState(LocalStorage.get(storageKeys.THEME) ?? 'dark')
 
   function updateTheme() {
     setTheme(theme === 'dark' ? 'light' : 'dark')
   }
-
-  useEffect(() => {
-    const localTheme = LocalStorage.get(storageKeys.THEME)
-    if (localTheme) {
-      setTheme(localTheme)
-    }
-  }, [])
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -34,7 +27,7 @@ export default function Theme() {
   return (
     <button
       onClick={updateTheme}
-      className={`cursor-pointer text-primary rounded-full p-2 duration-300 transition-transform group: ${theme === 'dark' ? "-rotate-180" : "rotate-0"
+      className={`cursor-pointer text-foreground rounded-full p-2 duration-300 transition-transform group: ${theme === 'dark' ? "rotate-0" : "-rotate-180"
         }`}
       aria-label="Toggle Theme"
     >
