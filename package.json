@@ -10,6 +10,9 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@portabletext/react": "^4.0.3",
+    "@sanity/client": "^7.12.0",
+    "@sanity/image-url": "^1.2.0",
     "@tailwindcss/vite": "^4.0.6",
     "@tanstack/react-devtools": "^0.2.2",
     "@tanstack/react-router": "^1.130.2",
