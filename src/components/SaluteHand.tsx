@@ -6,10 +6,10 @@ export default function SaluteHand() {
       aria-label="Waving hand"
       style={{
         display: 'inline-block',
-        transform: 'rotate(0deg)'
+        transform: 'rotate(0deg)',
       }}
     >
       👋
     </span>
   );
-};
+}

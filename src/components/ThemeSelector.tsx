@@ -1,40 +1,40 @@
-"use client";
-import { useEffect, useState } from "react";
-import SunIcon from "@/assets/icons/sun";
-import MoonIcon from "@/assets/icons/moon";
-import { LocalStorage } from "@/utils/localStorage";
-import { storageKeys } from "@/utils/constants/storageKeys";
+'use client';
+import { useEffect, useState } from 'react';
+import SunIcon from '@/assets/icons/sun';
+import MoonIcon from '@/assets/icons/moon';
+import { LocalStorage } from '@/utils/localStorage';
+import { storageKeys } from '@/utils/constants/storageKeys';
 
 export default function ThemeSelector() {
-  const [theme, setTheme] = useState('')
+  const [theme, setTheme] = useState('');
   const [hasMounted, setHasMounted] = useState(false);
 
   function updateTheme() {
-    setTheme(theme === 'dark' ? 'light' : 'dark')
+    setTheme(theme === 'dark' ? 'light' : 'dark');
   }
 
   useEffect(() => {
     if (theme === 'dark') {
-      document.documentElement.classList.add('dark')
-      document.documentElement.classList.remove('light')
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
     } else {
-      document.documentElement.classList.add('light')
-      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
     }
 
     if (theme) {
-      LocalStorage.set(storageKeys.THEME, theme === 'dark' ? 'dark' : 'light')
+      LocalStorage.set(storageKeys.THEME, theme === 'dark' ? 'dark' : 'light');
     }
-  }, [theme])
+  }, [theme]);
 
   useEffect(() => {
-    const localTheme = LocalStorage.get(storageKeys.THEME)
+    const localTheme = LocalStorage.get(storageKeys.THEME);
 
     if (localTheme) {
-      setTheme(localTheme)
+      setTheme(localTheme);
     }
 
-    setHasMounted(true)
+    setHasMounted(true);
   }, []);
 
   if (!hasMounted)
@@ -47,8 +47,9 @@ export default function ThemeSelector() {
   return (
     <button
       onClick={updateTheme}
-      className={`cursor-pointer text-foreground hover:text-primary rounded-full p-2 duration-300 transition-all group: ${theme === 'dark' ? "rotate-0" : "-rotate-180"
-        }`}
+      className={`cursor-pointer text-foreground hover:text-primary rounded-full p-2 duration-300 transition-all group: ${
+        theme === 'dark' ? 'rotate-0' : '-rotate-180'
+      }`}
       aria-label="Toggle Theme"
     >
       {theme === 'dark' ? <MoonIcon /> : <SunIcon />}

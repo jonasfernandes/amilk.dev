@@ -1,13 +1,13 @@
 export class LocalStorage {
   static get(key: string) {
-    return JSON.parse(localStorage.getItem(key) || '{}')
+    return JSON.parse(localStorage.getItem(key) || '{}');
   }
 
   static set(key: string, value: any) {
-    localStorage.setItem(key, JSON.stringify(value))
+    localStorage.setItem(key, JSON.stringify(value));
   }
 
   static remove(key: string) {
-    localStorage.removeItem(key)
+    localStorage.removeItem(key);
   }
 }

@@ -1,11 +1,11 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-
 @font-face {
   font-family: 'Major Mono';
-  src: url('./assets/fonts/major-mono/regular.woff2') format('woff2'),
+  src:
+    url('./assets/fonts/major-mono/regular.woff2') format('woff2'),
     url('./assets/fonts/major-mono/regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
@@ -14,7 +14,8 @@
 
 @font-face {
   font-family: 'Proxima Nova Light';
-  src: url('./assets/fonts/proxima-nova/light.woff2') format('woff2'),
+  src:
+    url('./assets/fonts/proxima-nova/light.woff2') format('woff2'),
     url('./assets/fonts/proxima-nova/light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
@@ -23,7 +24,8 @@
 
 @font-face {
   font-family: 'Proxima Nova';
-  src: url('./assets/fonts/proxima-nova/regular.woff2') format('woff2'),
+  src:
+    url('./assets/fonts/proxima-nova/regular.woff2') format('woff2'),
     url('./assets/fonts/proxima-nova/regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
@@ -32,7 +34,8 @@
 
 @font-face {
   font-family: 'Proxima Nova Bold';
-  src: url('./assets/fonts/proxima-nova/bold.woff2') format('woff2'),
+  src:
+    url('./assets/fonts/proxima-nova/bold.woff2') format('woff2'),
     url('./assets/fonts/proxima-nova/bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
@@ -51,7 +54,7 @@ html {
 
 body {
   @apply m-0;
-  font-family: "Proxima Nova", sans-serif;
+  font-family: 'Proxima Nova', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -63,15 +66,15 @@ body {
 :root {
   --background: #ffffff;
   --foreground: #3f3f46;
-  --foreground-2: #5D5D68;
-  --primary: #2A71D2;
+  --foreground-2: #5d5d68;
+  --primary: #2a71d2;
 }
 
 .dark {
   --background: #18181b;
   --foreground: #ffffff;
   --foreground-2: #dddddd;
-  --primary: #2A71D2;
+  --primary: #2a71d2;
   /* #89A069 */
   /* #FFDA3B */
   /* #F29FB3 */

@@ -1,4 +1,4 @@
 export type SSRError = {
-  description: string,
-  error: Error
-}
+  description: string;
+  error: Error;
+};

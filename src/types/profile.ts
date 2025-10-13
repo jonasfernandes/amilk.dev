@@ -5,4 +5,4 @@ export type Profile = {
   location: string;
   description: string;
   image: string;
-}
+};
