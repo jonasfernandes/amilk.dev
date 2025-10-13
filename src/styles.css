@@ -68,6 +68,7 @@ body {
   --foreground: #3f3f46;
   --foreground-2: #5d5d68;
   --primary: #2a71d2;
+  --loading-git: oklab(from 50% calc(l * 0.96) a b);
 }
 
 .dark {
@@ -75,10 +76,7 @@ body {
   --foreground: #ffffff;
   --foreground-2: #dddddd;
   --primary: #2a71d2;
-  /* #89A069 */
-  /* #FFDA3B */
-  /* #F29FB3 */
-  /* #2A71D2 */
+  --loading-git: oklab(from 50% calc(l * 1.08) a b);
 }
 
 @theme {
@@ -86,6 +84,7 @@ body {
   --color-foreground: var(--foreground);
   --color-foreground-2: var(--foreground-2);
   --color-primary: var(--primary);
+  --color-loading-git: var(--loading-git);
 
   --animate-wave: wave 2.5s ease-in-out infinite;
 }
@@ -121,5 +120,17 @@ body {
 
   100% {
     transform: rotate(0deg);
+  }
+}
+
+@keyframes loadingGithub {
+  0% {
+    fill: oklab(from 50% l a b);
+  }
+  50% {
+    fill: var(--color-loading-git);
+  }
+  100% {
+    fill: oklab(from 50% l a b);
   }
 }
