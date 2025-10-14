@@ -63,11 +63,13 @@ body {
   background-image: url(./assets/images/noise.png);
   background-size: 200px 200px;
   background-position: 0 0;
+
+  cursor: none;
 }
 
 :root {
   --background: #ffffff;
-  --background-2: #e7e3e4;
+  --background-2: rgba(255, 255, 255, 0.6);
   --foreground: #3f3f46;
   --foreground-2: #5d5d68;
   --primary: #2a71d2;
@@ -83,7 +85,7 @@ body {
 
 .dark {
   --background: #18181b;
-  --background-2: #3f3f47;
+  --background-2: rgba(39, 39, 43, 0.4);
   --foreground: #ffffff;
   --foreground-2: #dddddd;
   --primary: #2a71d2;
