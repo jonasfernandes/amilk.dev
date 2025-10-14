@@ -9,7 +9,7 @@ type GithubDataContextType = {
   weeks: GitContributionWeek[];
   months: GitContributionMonth[];
   totalContributions: number;
-  contributionYears: number[];
+  error: string | null;
 };
 
 const GithubDataContext = createContext<GithubDataContextType | undefined>(undefined);

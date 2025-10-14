@@ -11,7 +11,7 @@ export default function GithubCalendar() {
 
   return (
     <article className="flex flex-col gap-4">
-      <div className="">
+      <div className="overflow-x-auto">
         <svg width="897" height="137" viewBox="0 0 897 137" className="">
           <Months />
           {weeks.map((week, index) => (

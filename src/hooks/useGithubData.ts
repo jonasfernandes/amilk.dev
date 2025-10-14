@@ -7,33 +7,41 @@ export default function useGithubData() {
   const [weeks, setWeeks] = useState<GitContributionWeek[]>([]);
   const [months, setMonths] = useState<GitContributionMonth[]>([]);
   const [totalContributions, setTotalContributions] = useState(0);
-  const [contributionYears, setContributionYears] = useState<number[]>([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const userName = import.meta.env.VITE_GITHUB_USERNAME;
 
   const getData = async () => {
     setLoading(true);
-    const {
-      data: {
+    try {
+      const { errors, data } = await retrieveContributionData(
+        userName,
+        calendarYear ? `${calendarYear}-01-01T00:00:00Z` : null,
+        calendarYear ? `${calendarYear}-12-31T23:59:59Z` : null,
+      );
+
+      if (errors) {
+        setError(errors[0].message);
+        return;
+      }
+
+      const {
         user: {
           contributionsCollection: {
-            contributionYears,
             contributionCalendar: { months, weeks, totalContributions },
           },
         },
-      },
-    } = await retrieveContributionData(
-      userName,
-      calendarYear ? `${calendarYear}-01-01T00:00:00Z` : null,
-      calendarYear ? `${calendarYear}-12-31T23:59:59Z` : null,
-    );
-    setLoading(false);
+      } = data;
 
-    setMonths(months);
-    setWeeks(weeks);
-    setTotalContributions(totalContributions);
-    setContributionYears(contributionYears);
+      setMonths(months);
+      setWeeks(weeks);
+      setTotalContributions(totalContributions);
+    } catch (e) {
+      setError(e as string);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -41,12 +49,12 @@ export default function useGithubData() {
   }, [calendarYear]);
 
   return {
+    error,
     loading,
     calendarYear,
     setCalendarYear,
     weeks,
     months,
     totalContributions,
-    contributionYears,
   };
 }

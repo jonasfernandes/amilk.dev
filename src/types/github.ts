@@ -4,10 +4,14 @@ export type GithubData = {
       contributionsCollection: GitContributionsCollection;
     };
   };
+  errors: {
+    code: string;
+    message: string;
+    type: string;
+  }[];
 };
 
 export type GitContributionsCollection = {
-  contributionYears: number[];
   contributionCalendar: GitContributionCalendar;
 };
 
