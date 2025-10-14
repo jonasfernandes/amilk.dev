@@ -1,12 +1,18 @@
-export default function Months({ months, weeks }: { months: any; weeks: any }) {
+'use client';
+
+import { useGithubDataContext } from '@/context/GithubDataContext';
+
+export default function Months() {
+  const { weeks, months } = useGithubDataContext();
+
   const getMonthOffset = (firstDay: string) => {
-    const monthWeekDay = weeks.reduce((acc: number, week: any) => {
-      const { weekday } = week.contributionDays.find((day: any) => day.date === firstDay) || {};
+    const monthWeekDay = weeks.reduce((acc: number, week) => {
+      const { weekday } = week.contributionDays.find((day) => day.date === firstDay) || {};
       return weekday ? acc + weekday : acc;
     }, 0);
 
-    const monthIndex = weeks.findIndex((week: any) =>
-      week.contributionDays.find((day: any) => day.date === firstDay),
+    const monthIndex = weeks.findIndex((week) =>
+      week.contributionDays.find((day) => day.date === firstDay),
     );
 
     const monthOffset = monthWeekDay > 0 ? monthIndex + 1 : monthIndex;
@@ -15,9 +21,14 @@ export default function Months({ months, weeks }: { months: any; weeks: any }) {
   };
 
   return (
-    <g className="">
-      {months.map((month: any) => (
-        <text key={month.firstDay} x={getMonthOffset(month.firstDay)} dominantBaseline="hanging">
+    <g className="text-foreground">
+      {months.map((month) => (
+        <text
+          className="fill-current text-sm"
+          key={month.firstDay}
+          x={getMonthOffset(month.firstDay)}
+          dominantBaseline="hanging"
+        >
           {month.name}
         </text>
       ))}

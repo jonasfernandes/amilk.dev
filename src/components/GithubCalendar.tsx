@@ -2,50 +2,43 @@
 
 import Week from '@/components/github/Week';
 import Months from '@/components/github/Months';
+import { useGithubDataContext } from '@/context/GithubDataContext';
+import Day from '@/components/github/Day';
 
-export default function GithubCalendar({
-  weeks,
-  months,
-  totalContributions,
-  year,
-}: {
-  weeks: any;
-  months: any;
-  totalContributions: number;
-  year: number | undefined;
-}) {
-  const gitTotalMessage = `${totalContributions} contributions in ${year ? year : 'the last year'}`;
+export default function GithubCalendar() {
+  const { calendarYear, weeks, totalContributions } = useGithubDataContext();
+  const gitTotalMessage = `${totalContributions} contributions in ${calendarYear ? calendarYear : 'the last year'}`;
 
   return (
     <article className="flex flex-col gap-4">
       <div className="">
         <svg width="897" height="137" viewBox="0 0 897 137" className="">
-          <Months months={months} weeks={weeks} />
-          {weeks.map((week: any, index) => (
+          <Months />
+          {weeks.map((week, index) => (
             <Week key={week.firstDay} week={week} offset={index} />
           ))}
         </svg>
       </div>
       <footer className="flex flex-row justify-between">
-        <div className="">{gitTotalMessage}</div>
-        <div className="flex flex-row items-center">
-          <span className="mr-2">Less</span>
+        <div className="text-sm text-foreground">{gitTotalMessage}</div>
+        <div className="flex flex-row items-center gap-1 text-sm text-foreground">
+          <span className="mr-1">Less</span>
           <svg width="13" height="13">
-            <rect width="13" height="13" fill="#161b22" rx="2" ry="2"></rect>
+            <Day date="" level="NONE" weekday={-1} offset={0} />
           </svg>
           <svg width="13" height="13">
-            <rect width="13" height="13" fill="#0e4429" rx="2" ry="2"></rect>
+            <Day date="" level="FIRST_QUARTILE" weekday={-1} offset={0} />
           </svg>
           <svg width="13" height="13">
-            <rect width="13" height="13" fill="#006d32" rx="2" ry="2"></rect>
+            <Day date="" level="SECOND_QUARTILE" weekday={-1} offset={0} />
           </svg>
           <svg width="13" height="13">
-            <rect width="13" height="13" fill="#26a641" rx="2" ry="2"></rect>
+            <Day date="" level="THIRD_QUARTILE" weekday={-1} offset={0} />
           </svg>
           <svg width="13" height="13">
-            <rect width="13" height="13" fill="#39d353" rx="2" ry="2"></rect>
+            <Day date="" level="FOURTH_QUARTILE" weekday={-1} offset={0} />
           </svg>
-          <span className="ml-2">More</span>
+          <span className="ml-1">More</span>
         </div>
       </footer>
     </article>

@@ -1,6 +1,7 @@
+import { useGithubDataContext } from '@/context/GithubDataContext';
 import { githubKeysLevel } from '@/utils/constants/githubKeys';
 
-export default function Cells({
+export default function Day({
   date,
   level,
   weekday,
@@ -11,22 +12,26 @@ export default function Cells({
   weekday: number;
   offset: number;
 }) {
+  const { loading } = useGithubDataContext();
+
   const getLevelColor = () => {
     switch (level) {
       case githubKeysLevel.NONE:
-        return '#161b22';
+        return 'fill-github-level-0';
       case githubKeysLevel.FIRST_QUARTILE:
-        return '#0e4429';
+        return 'fill-github-level-1';
       case githubKeysLevel.SECOND_QUARTILE:
-        return '#006d32';
+        return 'fill-github-level-2';
       case githubKeysLevel.THIRD_QUARTILE:
-        return '#26a641';
+        return 'fill-github-level-3';
       case githubKeysLevel.FOURTH_QUARTILE:
-        return '#39d353';
+        return 'fill-github-level-4';
     }
   };
 
-  const position = weekday * 17 + 22;
+  const hasWeekDay = weekday >= 0;
+  const position = hasWeekDay ? weekday * 17 + 22 : 0;
+  const hasLoader = loading && hasWeekDay;
 
   return (
     <rect
@@ -36,11 +41,10 @@ export default function Cells({
       height="13"
       rx="2"
       ry="2"
-      fill={getLevelColor()}
       data-date={date}
       data-level={level}
+      className={`${getLevelColor()} stroke-github-cell-stroke ${hasLoader ? 'animate-loading-git' : ''}`}
       style={{
-        animation: 'loadingGithub 1.75s ease-in-out infinite',
         animationDelay: `${offset * 20 + weekday * 20}ms`,
       }}
     ></rect>
