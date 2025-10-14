@@ -1,6 +1,5 @@
 import { useGithubDataContext } from '@/context/GithubDataContext';
 import { githubKeysLevel } from '@/utils/constants/githubKeys';
-import Tooltip from '@/components/github/Tooltip';
 
 export default function Day({
   date,
@@ -11,7 +10,7 @@ export default function Day({
 }: {
   date: string;
   level: string;
-  count: number;
+  count?: number;
   weekday: number;
   offset: number;
 }) {
