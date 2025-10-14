@@ -20,3 +20,11 @@ export function getFakeContribution() {
     })),
   }));
 }
+
+export function getFakeMonths() {
+  return Array.from({ length: 12 }, () => ({
+    firstDay: new Date().toISOString(),
+    name: '',
+    year: 0,
+  }));
+}

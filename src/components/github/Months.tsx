@@ -22,10 +22,10 @@ export default function Months() {
 
   return (
     <g className="text-foreground">
-      {months.map((month) => (
+      {months.map((month, index) => (
         <text
           className="fill-current text-sm"
-          key={month.firstDay}
+          key={index}
           x={getMonthOffset(month.firstDay)}
           dominantBaseline="hanging"
         >

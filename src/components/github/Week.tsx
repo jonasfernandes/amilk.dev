@@ -11,6 +11,7 @@ export default function Week({ week, offset }: { week: GitContributionWeek; offs
           key={index}
           date={day.date}
           level={day.contributionLevel}
+          count={day.contributionCount}
           offset={offset}
           weekday={day.weekday}
         />

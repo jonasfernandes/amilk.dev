@@ -1,14 +1,17 @@
 import { useGithubDataContext } from '@/context/GithubDataContext';
 import { githubKeysLevel } from '@/utils/constants/githubKeys';
+import Tooltip from '@/components/github/Tooltip';
 
 export default function Day({
   date,
   level,
+  count,
   weekday,
   offset,
 }: {
   date: string;
   level: string;
+  count: number;
   weekday: number;
   offset: number;
 }) {
@@ -29,6 +32,27 @@ export default function Day({
     }
   };
 
+  function getSuffix(day: number) {
+    if (day > 3 && day < 21) return 'th';
+    switch (day % 10) {
+      case 1:
+        return 'st';
+      case 2:
+        return 'nd';
+      case 3:
+        return 'rd';
+      default:
+        return 'th';
+    }
+  }
+
+  function formatDateWithSuffix() {
+    const day = new Date(date).getDate();
+    const month = new Date(date).toLocaleString('en-us', { month: 'short' });
+
+    return `${month} ${day}${getSuffix(day)}`;
+  }
+
   const hasWeekDay = weekday >= 0;
   const position = hasWeekDay ? weekday * 17 + 22 : 0;
   const hasLoader = loading && hasWeekDay;
@@ -47,6 +71,9 @@ export default function Day({
       style={{
         animationDelay: `${offset * 20 + weekday * 20}ms`,
       }}
-    ></rect>
+      data-tooltip-target="tooltip-default"
+    >
+      <title>{`${count ? count : 'No'} contributions on ${formatDateWithSuffix()}`}</title>
+    </rect>
   );
 }

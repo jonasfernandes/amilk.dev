@@ -6,8 +6,9 @@ import { useGithubDataContext } from '@/context/GithubDataContext';
 import Day from '@/components/github/Day';
 
 export default function GithubCalendar() {
-  const { calendarYear, weeks, totalContributions } = useGithubDataContext();
-  const gitTotalMessage = `${totalContributions} contributions in ${calendarYear ? calendarYear : 'the last year'}`;
+  const { calendarYear, weeks, totalContributions, loading } = useGithubDataContext();
+
+  const gitTotalMessage = `${loading ? '...' : totalContributions} contributions in ${calendarYear ? calendarYear : 'the last year'}`;
 
   return (
     <article className="flex flex-col gap-4">

@@ -1,7 +1,7 @@
 import { retrieveContributionData } from '@/services/github';
 import { useEffect, useState } from 'react';
 import { GitContributionMonth, GitContributionWeek } from '@/types/github';
-import { getFakeContribution } from '@/utils/github-contribution';
+import { getFakeContribution, getFakeMonths } from '@/utils/github-contribution';
 
 export default function useGithubData() {
   const [calendarYear, setCalendarYear] = useState<number | undefined>();
@@ -15,6 +15,7 @@ export default function useGithubData() {
 
   const getData = async () => {
     setWeeks(getFakeContribution());
+    setMonths(getFakeMonths());
     setLoading(true);
 
     try {
