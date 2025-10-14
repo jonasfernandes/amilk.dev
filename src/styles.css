@@ -51,6 +51,7 @@ html {
     font-size: 16px;
   }
 
+  cursor: none;
   scrollbar-color: var(--foreground-2) var(--background);
 }
 
@@ -63,8 +64,6 @@ body {
   background-image: url(./assets/images/noise.png);
   background-size: 200px 200px;
   background-position: 0 0;
-
-  cursor: none;
 }
 
 :root {

@@ -53,7 +53,7 @@ export default function Cursor() {
   return (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 w-4 h-4 rounded-full transition-[width,height] duration-300 ease-out translate-x-[-50%] translate-y-[-50%] border border-primary bg-primary pointer-events-none"
+      className="fixed top-0 left-0 w-3 h-3 rounded-full transition-[width,height] duration-300 ease-out translate-x-[-50%] translate-y-[-50%] border border-primary bg-primary pointer-events-none"
     ></div>
   );
 }
