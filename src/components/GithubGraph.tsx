@@ -16,7 +16,7 @@ function ContributionGraphContent() {
   }
 
   return (
-    <div className="flex flex-col xl:flex-row gap-4 justify-center px-8">
+    <section className="flex flex-col xl:flex-row gap-4">
       <div className="bg-github-container border dark:border-zinc-800 border-zinc-200 p-8 rounded-lg max-w-fit max-h-fit">
         <GitHubCalendar />
       </div>
@@ -31,7 +31,7 @@ function ContributionGraphContent() {
           </Button>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

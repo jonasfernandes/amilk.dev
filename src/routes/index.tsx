@@ -13,7 +13,7 @@ function App() {
   const profile = Route.useLoaderData();
 
   return (
-    <main className="">
+    <main className="max-w-7xl mx-auto md:px-16 px-6 lg:mt-16 mt-10">
       <Hero profile={profile} />
       <ContributionGraph />
     </main>
