@@ -1,3 +1,5 @@
+import { githubKeysLevel } from '@/utils/constants/githubKeys';
+
 export type GithubData = {
   data: {
     user: {
@@ -34,7 +36,7 @@ export type GitContributionWeek = {
 
 export type GitContributionDay = {
   contributionCount: number;
-  contributionLevel: string;
+  contributionLevel: keyof typeof githubKeysLevel;
   date: string;
   weekday: number;
 };

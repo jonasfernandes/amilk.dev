@@ -6,9 +6,9 @@ export default function Week({ week, offset }: { week: GitContributionWeek; offs
   const position = offset * 17;
   return (
     <g transform={`translate(${position}, 0)`}>
-      {contributionDays.map((day) => (
+      {contributionDays.map((day, index) => (
         <Day
-          key={day.date}
+          key={index}
           date={day.date}
           level={day.contributionLevel}
           offset={offset}

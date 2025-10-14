@@ -1,5 +1,3 @@
-import travolta from 'public/travolta.gif';
-
 type stateType = {
   value?: string;
   icon?: React.ReactNode;
@@ -11,7 +9,7 @@ export default function EmptyState({ value, title, icon, message }: stateType) {
   return (
     <div className="w-full flex flex-col items-center text-center bg-background border border-dashed dark:border-zinc-700 border-zinc-200 rounded-md px-6 py-8">
       <div className="mb-6 text-4xl text-zinc-500">
-        {icon || <img width={80} height={80} src={travolta} alt="Travolta confused" />}
+        {icon || <img width={80} height={80} src="public/travolta.gif" alt="Travolta confused" />}
       </div>
       <h3 className="   font-bold tracking-tight text-xl mb-3">{title ?? `No ${value} Found`}</h3>
       <p className="text-sm text-foreground-2 mb-6 ml-4 max-w-sm">

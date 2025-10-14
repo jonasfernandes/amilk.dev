@@ -15,7 +15,7 @@ export default function GithubCalendar() {
         <svg width="897" height="137" viewBox="0 0 897 137" className="">
           <Months />
           {weeks.map((week, index) => (
-            <Week key={week.firstDay} week={week} offset={index} />
+            <Week key={index} week={week} offset={index} />
           ))}
         </svg>
       </div>

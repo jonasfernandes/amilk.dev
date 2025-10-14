@@ -1,19 +1,22 @@
 import { retrieveContributionData } from '@/services/github';
 import { useEffect, useState } from 'react';
 import { GitContributionMonth, GitContributionWeek } from '@/types/github';
+import { getFakeContribution } from '@/utils/github-contribution';
 
 export default function useGithubData() {
   const [calendarYear, setCalendarYear] = useState<number | undefined>();
   const [weeks, setWeeks] = useState<GitContributionWeek[]>([]);
   const [months, setMonths] = useState<GitContributionMonth[]>([]);
   const [totalContributions, setTotalContributions] = useState(0);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const userName = import.meta.env.VITE_GITHUB_USERNAME;
 
   const getData = async () => {
+    setWeeks(getFakeContribution());
     setLoading(true);
+
     try {
       const { errors, data } = await retrieveContributionData(
         userName,
