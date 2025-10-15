@@ -1,31 +1,21 @@
+import useMousePosition from '@/hooks/useMousePosition';
 import { useEffect, useRef, useState } from 'react';
 
 export default function Cursor() {
   const [cursorType, setCursorType] = useState('auto');
-  const [target, setTarget] = useState<HTMLElement | null>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
+  const { x, y, target } = useMousePosition();
 
   useEffect(() => {
     const cursor = cursorRef.current;
     if (!cursor) return;
 
-    document.addEventListener('mousemove', (e) => {
-      const target = e.target as HTMLElement;
-      const cursorType = target.computedStyleMap().get('cursor') as CSSUnitValue;
-      setCursorType(cursorType.value.toString());
-      setTarget(target);
+    const cursorType = target?.computedStyleMap().get('cursor') as CSSUnitValue;
+    setCursorType(cursorType?.value.toString());
 
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
-
-    return () => {
-      document.removeEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-      });
-    };
-  }, []);
+    cursor.style.left = x + 'px';
+    cursor.style.top = y + 'px';
+  }, [x, y]);
 
   useEffect(() => {
     if (!target) return;
