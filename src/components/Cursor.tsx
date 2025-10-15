@@ -30,7 +30,7 @@ export default function Cursor() {
       cursorRef.current.style.removeProperty('border-radius');
     }
     cursorRef.current?.classList.remove('bg-transparent');
-    if (cursorType === 'pointer') {
+    if (cursorType !== 'none') {
       if (cursorRef.current) {
         cursorRef.current.style.width = width;
         cursorRef.current.style.height = height;

@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router';
-import ThemeSelector from './ThemeSelector';
-import MyLink from './Link';
+import ThemeSelector from '@/components/ThemeSelector';
+import Magnetic from '@/components/effects/Magnetic';
+import MyLink from '@/components/Link';
 
 export default function Header() {
   return (
@@ -12,8 +13,12 @@ export default function Header() {
       </div>
 
       <nav className="flex flex-row gap-6">
-        <MyLink to="/demo/start/server-funcs">about</MyLink>
-        <MyLink to="/demo/start/api-request">contact</MyLink>
+        <Magnetic>
+          <MyLink to="/demo/start/server-funcs">about</MyLink>
+        </Magnetic>
+        <Magnetic>
+          <MyLink to="/demo/start/api-request">contact</MyLink>
+        </Magnetic>
       </nav>
 
       <ThemeSelector />
