@@ -47,7 +47,7 @@ export default function ThemeSelector() {
   return (
     <button
       onClick={updateTheme}
-      className={`cursor-pointer text-foreground hover:text-primary rounded-full p-2 duration-300 transition-all group: ${
+      className={`cursor-pointer text-foreground rounded-full p-2 duration-300 transition-all group: ${
         theme === 'dark' ? 'rotate-0' : '-rotate-180'
       }`}
       aria-label="Toggle Theme"
