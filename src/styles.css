@@ -43,11 +43,9 @@
 }
 
 html {
-  font-size: 12px;
+  font-size: 14px;
+
   @variant md {
-    font-size: 14px;
-  }
-  @variant lg {
     font-size: 16px;
   }
 

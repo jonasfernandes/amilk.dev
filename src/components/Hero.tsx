@@ -22,7 +22,7 @@ export default function Hero({ profile }: { profile: Profile | SSRError }) {
         <p className="p-2 text-foreground-2 text-xl">
           Yo! <SaluteHand />, I’m <b>{profile.name}</b>
         </p>
-        <h1 className="font-[Proxima_Nova_Bold] text-primary text-8xl sm:text-8xl tracking-tighter leading-20">
+        <h1 className="font-[Proxima_Nova_Bold] text-primary text-[5.5rem] lg:text-8xl tracking-tighter leading-20">
           Frontend <br />
           Developer.
         </h1>
