@@ -4,7 +4,7 @@ import GitHubCalendar from '@/components/GithubCalendar';
 import Button from '@/components/Button';
 import { GithubDataProvider, useGithubDataContext } from '@/context/GithubDataContext';
 import EmptyState from './EmptyState';
-import { getGitHubYears } from '@/utils/github-contribution';
+import { getGitHubYears } from '@/utils/githubContribution';
 
 function ContributionGraphContent() {
   const { calendarYear, setCalendarYear, error } = useGithubDataContext();
