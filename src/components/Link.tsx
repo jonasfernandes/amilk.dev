@@ -1,9 +1,14 @@
 import { Link } from '@tanstack/react-router';
+import { useStickyElements } from '@/store/styckElements';
 
 export default function MyLink({ to, children }: { to: string; children: React.ReactNode }) {
+  const { setStickyElementsRef } = useStickyElements();
+
   return (
-    <p className="group relative w-max">
-      <Link to={to}>{children}</Link>
-    </p>
+    <span className="group relative w-max">
+      <Link to={to} ref={setStickyElementsRef}>
+        {children}
+      </Link>
+    </span>
   );
 }

@@ -5,10 +5,12 @@ import MoonIcon from '@/assets/icons/moon';
 import { LocalStorage } from '@/utils/localStorage';
 import { storageKeys } from '@/utils/constants/storageKeys';
 import Magnetic from '@/components/effects/Magnetic';
+import { useStickyElements } from '@/store/styckElements';
 
 export default function ThemeSelector() {
   const [theme, setTheme] = useState('');
   const [hasMounted, setHasMounted] = useState(false);
+  const { setStickyElementsRef } = useStickyElements();
 
   function updateTheme() {
     setTheme(theme === 'dark' ? 'light' : 'dark');
@@ -49,9 +51,10 @@ export default function ThemeSelector() {
     <Magnetic>
       <button
         onClick={updateTheme}
-        className={`cursor-pointer text-foreground rounded-full p-2 duration-300 transition-all group: ${
+        className={`ref-sticky cursor-pointer text-foreground rounded-full p-2 duration-300 transition-all group: ${
           theme === 'dark' ? 'rotate-0' : '-rotate-180'
         }`}
+        ref={setStickyElementsRef}
         aria-label="Toggle Theme"
       >
         {theme === 'dark' ? <MoonIcon /> : <SunIcon />}

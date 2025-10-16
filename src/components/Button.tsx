@@ -1,5 +1,6 @@
 import { MouseEventHandler } from 'react';
 import Magnetic from '@/components/effects/Magnetic';
+import { useStickyElements } from '@/store/styckElements';
 
 export default function Button({
   children,
@@ -10,6 +11,8 @@ export default function Button({
   active?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }) {
+  const { setStickyElementsRef } = useStickyElements();
+
   return (
     <Magnetic>
       <button
@@ -18,6 +21,7 @@ export default function Button({
           active ? 'bg-primary text-white' : 'bg-background-2 text-foreground'
         }`}
         title={`View Graph for the year ${children}`}
+        ref={setStickyElementsRef}
       >
         {children}
       </button>
