@@ -61,7 +61,7 @@ export default function Cursor() {
   }
 
   useEffect(() => {
-    if (cursorType !== 'auto' && targetEl) {
+    if (cursorType !== 'none' && targetEl) {
       const computedStyle = window.getComputedStyle(targetEl);
 
       cursorSize.w.set(targetEl.offsetWidth + 16);
