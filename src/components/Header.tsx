@@ -14,10 +14,10 @@ export default function Header() {
 
       <nav className="flex flex-row gap-6">
         <Magnetic>
-          <MyLink to="/demo/start/server-funcs">about</MyLink>
+          <MyLink to="/">about</MyLink>
         </Magnetic>
         <Magnetic>
-          <MyLink to="/demo/start/api-request">contact</MyLink>
+          <MyLink to="/">contact</MyLink>
         </Magnetic>
       </nav>
 
