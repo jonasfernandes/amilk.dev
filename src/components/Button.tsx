@@ -1,6 +1,7 @@
 import { MouseEventHandler } from 'react';
 import Magnetic from '@/components/effects/Magnetic';
 import { useStickyElements } from '@/store/styckElements';
+import { motion } from 'framer-motion';
 
 export default function Button({
   children,
@@ -15,16 +16,17 @@ export default function Button({
 
   return (
     <Magnetic>
-      <button
+      <motion.button
         onClick={onClick}
         className={`cursor-pointer rounded-lg text-center px-4 py-2 text-sm font-medium ${
           active ? 'bg-primary text-white' : 'bg-background-2 text-foreground'
         }`}
         title={`View Graph for the year ${children}`}
         ref={setStickyElementsRef}
+        whileTap={{ scale: 0.9 }}
       >
         {children}
-      </button>
+      </motion.button>
     </Magnetic>
   );
 }

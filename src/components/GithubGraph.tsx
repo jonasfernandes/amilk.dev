@@ -22,7 +22,7 @@ function ContributionGraphContent() {
         <div className="bg-github-container border dark:border-zinc-800 border-zinc-200 p-8 rounded-lg max-w-fit max-h-fit">
           <GitHubCalendar />
         </div>
-        <div className="flex justify-start xl:flex-col flex-row flex-wrap gap-2">
+        <div className="flex justify-start xl:flex-col flex-row flex-wrap gap-3">
           {years.slice(0, 5).map((year) => (
             <Button
               key={year}
