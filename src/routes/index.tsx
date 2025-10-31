@@ -9,7 +9,7 @@ export const Route = createFileRoute('/')({
 
 function App() {
   return (
-    <main className="max-w-7xl mx-auto md:px-16 px-6 lg:mt-32 mt-20">
+    <main className="max-w-7xl mx-auto px-6 sm:px-16 lg:mt-32 mt-20">
       <Hero />
       <ContributionGraph />
     </main>

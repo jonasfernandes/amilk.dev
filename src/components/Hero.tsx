@@ -39,8 +39,7 @@ export default function Hero() {
             Yo! <SaluteHand />, I’m <b>{profile.name}</b>
           </p>
           <h1 className="font-[Proxima_Nova_Bold] text-primary text-[5.5rem] lg:text-8xl tracking-tighter leading-20">
-            Frontend <br />
-            Developer.
+            Frontend <br /> Developer.
           </h1>
           <p className="pl-2 text-foreground-2 text-md mt-2 sm:mt-4">{profile.description}</p>
         </Slide>

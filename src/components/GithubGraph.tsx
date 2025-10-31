@@ -17,7 +17,7 @@ function ContributionGraphContent() {
   }
 
   return (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col gap-4 lg:items-center">
       <Slide delay={0.5}>
         <p className="font-[Proxima_Nova_Bold] text-3xl text-foreground-2">GitHub Contributions</p>
         <div className="flex flex-col xl:flex-row gap-4 mt-4">
