@@ -5,7 +5,7 @@ import Months from '@/components/github/Months';
 import { useGithubDataContext } from '@/context/GithubDataContext';
 import Day from '@/components/github/Day';
 
-export default function GithubCalendar() {
+export default function Calendar() {
   const { calendarYear, weeks, totalContributions, loading } = useGithubDataContext();
 
   const gitTotalMessage = `${loading ? '...' : totalContributions} contributions in ${calendarYear ? calendarYear : 'the last year'}`;
