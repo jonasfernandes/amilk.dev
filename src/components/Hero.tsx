@@ -22,7 +22,9 @@ export default function Hero() {
     return <ErrorComponent error={new Error(profile.description)} />;
   }
 
-  const imageProfileUrl = profile.image ? urlFor(profile.image).width(300).height(300).url() : '';
+  const imageProfileUrl = profile.image
+    ? urlFor(profile.image).width(300).height(300).url()
+    : undefined;
 
   return (
     <section className="grid grid-cols-1 sm:grid-cols-[260px_minmax(10%,1fr)] lg:grid-cols-[320px_minmax(20%,1fr)] gap-12 sm-gap-8 lg:gap-12 mb-16 items-center">
@@ -32,16 +34,14 @@ export default function Hero() {
         <span className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-full h-full bg-primary rounded-full scale-100 group-hover:scale-0 transition-all duration-300"></span>
       </div>
       <div className="w-full">
-        <p className="p-2 text-foreground-2 text-xl">
-          Yo! <SaluteHand />, I’m <b>{profile.name}</b>
-        </p>
-        <Slide delay={0.1}>
+        <Slide delay={0.3}>
+          <p className="p-2 text-foreground-2 text-xl">
+            Yo! <SaluteHand />, I’m <b>{profile.name}</b>
+          </p>
           <h1 className="font-[Proxima_Nova_Bold] text-primary text-[5.5rem] lg:text-8xl tracking-tighter leading-20">
             Frontend <br />
             Developer.
           </h1>
-        </Slide>
-        <Slide delay={0.1}>
           <p className="pl-2 text-foreground-2 text-md mt-2 sm:mt-4">{profile.description}</p>
         </Slide>
       </div>

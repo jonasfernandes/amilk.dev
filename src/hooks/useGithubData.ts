@@ -38,7 +38,7 @@ export default function useGithubData() {
         },
       } = data;
 
-      setMonths(months);
+      setMonths(months.length > 12 ? months.slice(1, months.length) : months);
       setWeeks(weeks);
       setTotalContributions(totalContributions);
     } catch (e) {
