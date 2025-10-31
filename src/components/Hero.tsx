@@ -1,11 +1,23 @@
 import { ErrorComponent } from '@tanstack/react-router';
-import type { Profile } from '@/types/profile';
-import type { SSRError } from '@/types/common';
 import SaluteHand from '@/components/SaluteHand';
 import { urlFor } from '@/utils/sanityImageUrl';
 import Slide from '@/components/effects/Slide';
+import { getProfile } from '@/services/profile';
+import { useEffect, useState } from 'react';
+import type { Profile } from '@/types/profile';
 
-export default function Hero({ profile }: { profile: Profile | SSRError }) {
+export default function Hero() {
+  const [profile, setProfile] = useState<Profile>({} as Profile);
+
+  async function fetchProfile() {
+    const tempProfile = await getProfile();
+    setProfile(tempProfile);
+  }
+
+  useEffect(() => {
+    fetchProfile();
+  }, []);
+
   if ('error' in profile) {
     return <ErrorComponent error={new Error(profile.description)} />;
   }
@@ -13,7 +25,7 @@ export default function Hero({ profile }: { profile: Profile | SSRError }) {
   const imageProfileUrl = profile.image ? urlFor(profile.image).width(300).height(300).url() : '';
 
   return (
-    <section className="flex flex-row items-center gap-12 sm-gap-8 lg:gap-12 w-full mb-16">
+    <section className="flex flex-row items-center gap-12 sm-gap-8 lg:gap-12 w-full mb-16 min-h-auto lg:min-h-[340px]">
       <div className="hidden sm:block p-4 rounded-full relative group w-[60%] sm:w-[40%] max-w-[340px]">
         <img className="rounded-full overflow-hidden w-full h-full" src={imageProfileUrl} alt="" />
         <span className="border-2 border-primary rounded-full absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 transition-all duration-300 w-[90%] h-[90%] group-hover:w-full group-hover:h-full"></span>
