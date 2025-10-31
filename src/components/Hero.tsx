@@ -25,7 +25,7 @@ export default function Hero() {
   const imageProfileUrl = profile.image ? urlFor(profile.image).width(300).height(300).url() : '';
 
   return (
-    <section className="grid grid-cols-1 sm:grid-cols-[260px_minmax(10%,1fr)] lg:grid-cols-[320px_minmax(20%,1fr)] gap-12 sm-gap-8 lg:gap-12 w-full mb-16 items-center">
+    <section className="grid grid-cols-1 sm:grid-cols-[260px_minmax(10%,1fr)] lg:grid-cols-[320px_minmax(20%,1fr)] gap-12 sm-gap-8 lg:gap-12 mb-16 items-center">
       <div className="hidden sm:block p-4 rounded-full relative group w-[260px] h-[260px] lg:w-[320px] lg:h-[320px]">
         <img className="w-full h-full rounded-full" src={imageProfileUrl} />
         <span className="border-2 border-primary rounded-full absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 transition-all duration-300 w-[90%] h-[90%] group-hover:w-full group-hover:h-full"></span>
@@ -41,7 +41,7 @@ export default function Hero() {
             Developer.
           </h1>
         </Slide>
-        <Slide delay={0.3}>
+        <Slide delay={0.1}>
           <p className="pl-2 text-foreground-2 text-md mt-2 sm:mt-4">{profile.description}</p>
         </Slide>
       </div>

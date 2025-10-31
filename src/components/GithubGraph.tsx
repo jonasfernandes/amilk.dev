@@ -20,7 +20,7 @@ function ContributionGraphContent() {
     <section className="flex flex-col gap-4">
       <Slide delay={0.5}>
         <p className="font-[Proxima_Nova_Bold] text-3xl text-foreground-2">GitHub Contributions</p>
-        <div className="flex flex-col xl:flex-row gap-4">
+        <div className="flex flex-col xl:flex-row gap-4 mt-4">
           <div className="bg-github-container border dark:border-zinc-800 border-zinc-200 p-8 rounded-lg max-w-fit max-h-fit">
             <GitHubCalendar />
           </div>

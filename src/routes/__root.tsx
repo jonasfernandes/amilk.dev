@@ -1,42 +1,19 @@
-import { Scripts, createRootRoute } from '@tanstack/react-router';
+import { Outlet, Scripts, createRootRoute } from '@tanstack/react-router';
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
 import { TanstackDevtools } from '@tanstack/react-devtools';
 
 import Header from '@/components/Header';
 import Cursor from '@/components/Cursor';
 
-import appCss from '@/styles.css?url';
-
 export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      {
-        charSet: 'utf-8',
-      },
-      {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1',
-      },
-      {
-        title: 'TanStack Start Starter',
-      },
-    ],
-    links: [
-      {
-        rel: 'stylesheet',
-        href: appCss,
-      },
-    ],
-  }),
-
-  shellComponent: RootDocument,
+  component: RootDocument,
 });
 
-function RootDocument({ children }: { children: React.ReactNode }) {
+function RootDocument() {
   return (
     <>
       <Header />
-      {children}
+      <Outlet />
       <TanstackDevtools
         config={{
           position: 'bottom-left',
