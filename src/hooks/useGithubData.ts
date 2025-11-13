@@ -2,6 +2,7 @@ import { retrieveContributionData } from '@/services/github';
 import { useEffect, useState } from 'react';
 import { GitContributionMonth, GitContributionWeek } from '@/types/github';
 import { getFakeContribution, getFakeMonths } from '@/utils/githubContribution';
+import getErrorMessage from '@/utils/getError';
 
 export default function useGithubData() {
   const [calendarYear, setCalendarYear] = useState<number | undefined>();
@@ -41,8 +42,8 @@ export default function useGithubData() {
       setMonths(months.length > 12 ? months.slice(1, months.length) : months);
       setWeeks(weeks);
       setTotalContributions(totalContributions);
-    } catch (e) {
-      setError(e as string);
+    } catch (error) {
+      setError(getErrorMessage(error));
     } finally {
       setLoading(false);
     }
