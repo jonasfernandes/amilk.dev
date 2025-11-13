@@ -2,7 +2,7 @@ import { useStickyElements } from '@/store/styckElements';
 import { motion, useMotionValue, useSpring } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 
-const smoothOptions = { damping: 20, stiffness: 300, mass: 0.5 };
+const smoothOptions = { damping: 40, stiffness: 1000, mass: 0.5 };
 
 export default function Cursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
