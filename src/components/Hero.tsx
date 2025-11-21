@@ -10,8 +10,15 @@ export default function Hero() {
   const [profile, setProfile] = useState<Profile>({} as Profile);
 
   async function fetchProfile() {
-    const tempProfile = await getProfile();
-    setProfile(tempProfile);
+    try {
+      const tempProfile = await getProfile();
+
+      const [description] = tempProfile.description.filter((item) => item._key === 'en');
+
+      setProfile({ ...tempProfile, description: description.value });
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   useEffect(() => {
