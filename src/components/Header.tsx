@@ -2,8 +2,11 @@ import { Link } from '@tanstack/react-router';
 import ThemeSelector from '@/components/ThemeSelector';
 import Magnetic from '@/components/effects/Magnetic';
 import MyLink from '@/components/Link';
+import { useTranslation } from 'react-i18next';
 
 export default function Header() {
+  const { t } = useTranslation();
+
   return (
     <header className="p-4 flex gap-2 text-foreground justify-between items-center border-b border-zinc-200 dark:border-zinc-800">
       <div className="px-2 font-bold">
@@ -14,10 +17,10 @@ export default function Header() {
 
       <nav className="flex flex-row gap-6">
         <Magnetic>
-          <MyLink to="/">about</MyLink>
+          <MyLink to="/">{t('menu.about')}</MyLink>
         </Magnetic>
         <Magnetic>
-          <MyLink to="/">contact</MyLink>
+          <MyLink to="/">{t('menu.contact')}</MyLink>
         </Magnetic>
       </nav>
 
