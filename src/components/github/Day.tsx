@@ -46,8 +46,11 @@ export default function Day({
   }
 
   function formatDateWithSuffix() {
-    const day = new Date(date).getDate();
-    const month = new Date(date).toLocaleString('en-us', { month: 'short' });
+    if (!date) return '';
+
+    const dateWithoutTZ = new Date(date).toISOString().slice(0, -1);
+    const day = new Date(dateWithoutTZ).getDate();
+    const month = new Date(dateWithoutTZ).toLocaleString('en-us', { month: 'short' });
 
     return `${month} ${day}${getSuffix(day)}`;
   }
