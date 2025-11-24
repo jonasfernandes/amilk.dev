@@ -6,15 +6,16 @@ import { getProfile } from '@/services/profile';
 import { useEffect, useState } from 'react';
 import type { Profile } from '@/types/profile';
 import { Trans } from 'react-i18next';
+import { useI18nContext } from '@/context/I18nContext';
 
 export default function Hero() {
   const [profile, setProfile] = useState<Profile>({} as Profile);
+  const { currentLanguage } = useI18nContext();
 
   async function fetchProfile() {
     try {
       const tempProfile = await getProfile();
-
-      const [description] = tempProfile.description.filter((item) => item._key === 'en');
+      const [description] = tempProfile.description.filter((item) => item._key === currentLanguage);
 
       setProfile({ ...tempProfile, description: description.value });
     } catch (error) {
