@@ -4,6 +4,7 @@ import { TanstackDevtools } from '@tanstack/react-devtools';
 
 import Header from '@/components/Header';
 import Cursor from '@/components/Cursor';
+import { I18nProvider } from '@/context/I18nContext';
 
 export const Route = createRootRoute({
   component: RootDocument,
@@ -11,7 +12,7 @@ export const Route = createRootRoute({
 
 function RootDocument() {
   return (
-    <>
+    <I18nProvider>
       <Header />
       <Outlet />
       <TanstackDevtools
@@ -27,6 +28,6 @@ function RootDocument() {
       />
       <Cursor />
       <Scripts />
-    </>
+    </I18nProvider>
   );
 }
