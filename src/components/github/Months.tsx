@@ -1,6 +1,8 @@
 'use client';
 
 import { useGithubDataContext } from '@/context/GithubDataContext';
+import { GitContributionMonth } from '@/types/github';
+import { normalizeMonthStyle } from '@/utils/date';
 
 export default function Months() {
   const { weeks, months } = useGithubDataContext();
@@ -20,6 +22,12 @@ export default function Months() {
     return monthOffset > 0 ? monthOffset * 17 : 0;
   };
 
+  const getTranslatedMonth = (month: GitContributionMonth) => {
+    const format = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC' });
+    const result = format.format(new Date(month.firstDay));
+    return normalizeMonthStyle(result);
+  };
+
   return (
     <g className="text-foreground">
       {months.map((month, index) => (
@@ -29,7 +37,7 @@ export default function Months() {
           x={getMonthOffset(month.firstDay)}
           dominantBaseline="hanging"
         >
-          {month.name}
+          {getTranslatedMonth(month)}
         </text>
       ))}
     </g>
