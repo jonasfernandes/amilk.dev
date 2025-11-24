@@ -5,9 +5,11 @@ import Slide from '@/components/effects/Slide';
 import { getProfile } from '@/services/profile';
 import { useEffect, useState } from 'react';
 import type { Profile } from '@/types/profile';
+import { Trans, useTranslation } from 'react-i18next';
 
 export default function Hero() {
   const [profile, setProfile] = useState<Profile>({} as Profile);
+  const { t } = useTranslation();
 
   async function fetchProfile() {
     try {
@@ -43,10 +45,14 @@ export default function Hero() {
       <div className="w-full">
         <Slide delay={0.3}>
           <p className="p-2 text-foreground-2 text-xl">
-            Yo! <SaluteHand />, I’m <b>{profile.name}</b>
+            <Trans
+              i18nKey="hero.greeting"
+              values={{ name: profile.name }}
+              components={{ 1: <SaluteHand />, 2: <b /> }}
+            />
           </p>
           <h1 className="font-[Proxima_Nova_Bold] text-primary text-[5.5rem] lg:text-8xl tracking-tighter leading-20">
-            Frontend <br /> Developer.
+            <Trans i18nKey="hero.title" components={{ 1: <br /> }} />
           </h1>
           <p className="pl-2 text-foreground-2 text-md mt-2 sm:mt-4">{profile.description}</p>
         </Slide>

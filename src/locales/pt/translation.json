@@ -2,5 +2,9 @@
   "menu": {
     "about": "Sobre",
     "contact": "Contato"
+  },
+  "hero": {
+    "greeting": "Olá! <1 />, eu sou <2>{{name}}</2>",
+    "title": "Desenvolvedor <1 /> Frontend"
   }
 }
