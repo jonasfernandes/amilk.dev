@@ -5,11 +5,10 @@ import Slide from '@/components/effects/Slide';
 import { getProfile } from '@/services/profile';
 import { useEffect, useState } from 'react';
 import type { Profile } from '@/types/profile';
-import { Trans, useTranslation } from 'react-i18next';
+import { Trans } from 'react-i18next';
 
 export default function Hero() {
   const [profile, setProfile] = useState<Profile>({} as Profile);
-  const { t } = useTranslation();
 
   async function fetchProfile() {
     try {
