@@ -3,9 +3,11 @@
 import { useGithubDataContext } from '@/context/GithubDataContext';
 import { GitContributionMonth } from '@/types/github';
 import { normalizeMonthStyle } from '@/utils/date';
+import { useI18nContext } from '@/context/I18nContext';
 
 export default function Months() {
   const { weeks, months } = useGithubDataContext();
+  const { currentLanguage } = useI18nContext();
 
   const getMonthOffset = (firstDay: string) => {
     const monthWeekDay = weeks.reduce((acc: number, week) => {
@@ -23,7 +25,7 @@ export default function Months() {
   };
 
   const getTranslatedMonth = (month: GitContributionMonth) => {
-    const format = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC' });
+    const format = new Intl.DateTimeFormat(currentLanguage, { month: 'short', timeZone: 'UTC' });
     const result = format.format(new Date(month.firstDay));
     return normalizeMonthStyle(result);
   };
