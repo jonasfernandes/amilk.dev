@@ -1,5 +1,7 @@
 import { useGithubDataContext } from '@/context/GithubDataContext';
 import { githubKeysLevel } from '@/utils/constants/githubKeys';
+import { useI18nContext } from '@/context/I18nContext';
+import { useTranslation } from 'react-i18next';
 
 export default function Day({
   date,
@@ -15,6 +17,8 @@ export default function Day({
   offset: number;
 }) {
   const { loading } = useGithubDataContext();
+  const { currentLanguage } = useI18nContext();
+  const { t } = useTranslation();
 
   const getLevelColor = () => {
     switch (level) {
@@ -32,7 +36,6 @@ export default function Day({
   };
 
   function getSuffix(day: number) {
-    if (day > 3 && day < 21) return 'th';
     switch (day % 10) {
       case 1:
         return 'st';
@@ -50,14 +53,20 @@ export default function Day({
 
     const dateWithoutTZ = new Date(date).toISOString().slice(0, -1);
     const day = new Date(dateWithoutTZ).getDate();
-    const month = new Date(dateWithoutTZ).toLocaleString('en-us', { month: 'short' });
+    const formattedDate = new Date(dateWithoutTZ).toLocaleString(currentLanguage, {
+      day: 'numeric',
+      month: 'short',
+    });
 
-    return `${month} ${day}${getSuffix(day)}`;
+    return `${formattedDate}${currentLanguage === 'en' ? getSuffix(day) : ''}`;
   }
 
   const hasWeekDay = weekday >= 0;
   const position = hasWeekDay ? weekday * 17 + 22 : 0;
   const hasLoader = loading && hasWeekDay;
+  const contributionsText = count
+    ? t('github.contributions_on', { count, date: formatDateWithSuffix() })
+    : t('github.no_contributions_on', { date: formatDateWithSuffix() });
 
   return (
     <rect
@@ -75,7 +84,7 @@ export default function Day({
       }}
       data-tooltip-target="tooltip-default"
     >
-      <title>{`${count ? count : 'No'} contributions on ${formatDateWithSuffix()}`}</title>
+      <title>{contributionsText}</title>
     </rect>
   );
 }
