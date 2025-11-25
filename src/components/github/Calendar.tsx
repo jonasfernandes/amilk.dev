@@ -4,11 +4,20 @@ import Week from '@/components/github/Week';
 import Months from '@/components/github/Months';
 import { useGithubDataContext } from '@/context/GithubDataContext';
 import Day from '@/components/github/Day';
+import { useTranslation } from 'react-i18next';
 
 export default function Calendar() {
   const { calendarYear, weeks, totalContributions, loading } = useGithubDataContext();
+  const { t } = useTranslation();
 
-  const gitTotalMessage = `${loading ? '...' : totalContributions} contributions in ${calendarYear ? calendarYear : 'the last year'}`;
+  const gitTranslatedMessage = calendarYear
+    ? t('github.contributions_in', {
+        count: totalContributions,
+        year: calendarYear,
+      })
+    : t('github.the_last_year', { count: totalContributions });
+
+  const gitTotalMessage = loading ? '...' : gitTranslatedMessage;
 
   return (
     <article className="flex flex-col gap-4">
@@ -23,7 +32,7 @@ export default function Calendar() {
       <footer className="flex flex-row justify-between">
         <div className="text-sm text-foreground">{gitTotalMessage}</div>
         <div className="flex flex-row items-center gap-1 text-sm text-foreground">
-          <span className="mr-1">Less</span>
+          <span className="mr-1">{t('github.less')}</span>
           <svg width="13" height="13">
             <Day date="" level="NONE" weekday={-1} offset={0} />
           </svg>
@@ -39,7 +48,7 @@ export default function Calendar() {
           <svg width="13" height="13">
             <Day date="" level="FOURTH_QUARTILE" weekday={-1} offset={0} />
           </svg>
-          <span className="ml-1">More</span>
+          <span className="ml-1">{t('github.more')}</span>
         </div>
       </footer>
     </article>
