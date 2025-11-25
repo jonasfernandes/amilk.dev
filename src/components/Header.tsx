@@ -9,8 +9,8 @@ export default function Header() {
 
   return (
     <header className="p-4 flex gap-2 text-foreground justify-between items-center border-b border-zinc-200 dark:border-zinc-800">
-      <div className="px-2 font-bold">
-        <Link to="/" className="font-[Major_Mono] text-xl">
+      <div className="font-bold">
+        <Link to="/" className="font-[Major_Mono] text-xl px-2 py-1">
           Amilk
         </Link>
       </div>

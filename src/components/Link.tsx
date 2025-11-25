@@ -6,7 +6,7 @@ export default function MyLink({ to, children }: { to: string; children: React.R
 
   return (
     <span className="group relative w-max">
-      <Link to={to} ref={setStickyElementsRef}>
+      <Link className="px-1" to={to} ref={setStickyElementsRef}>
         {children}
       </Link>
     </span>
