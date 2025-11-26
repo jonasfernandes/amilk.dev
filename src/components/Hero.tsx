@@ -37,11 +37,13 @@ export default function Hero() {
 
   return (
     <section className="grid grid-cols-1 sm:grid-cols-[260px_minmax(10%,1fr)] lg:grid-cols-[320px_minmax(20%,1fr)] gap-12 sm-gap-8 lg:gap-12 mb-16 items-center">
-      <div className="hidden sm:block p-4 rounded-full relative group w-[260px] h-[260px] lg:w-[320px] lg:h-[320px]">
-        <img className="w-full h-full rounded-full" src={imageProfileUrl} />
-        <span className="border-2 border-primary rounded-full absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 transition-all duration-300 w-[90%] h-[90%] group-hover:w-full group-hover:h-full"></span>
-        <span className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-full h-full bg-primary rounded-full scale-100 group-hover:scale-0 transition-all duration-300"></span>
-      </div>
+      <Slide delay={0.3}>
+        <div className="hidden sm:block p-4 rounded-full relative group w-[260px] h-[260px] lg:w-[320px] lg:h-[320px]">
+          <img className="w-full h-full rounded-full" src={imageProfileUrl} />
+          <span className="border-2 border-primary rounded-full absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 transition-all duration-300 w-[90%] h-[90%] group-hover:w-full group-hover:h-full"></span>
+          <span className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-full h-full bg-primary rounded-full scale-100 group-hover:scale-0 transition-all duration-300"></span>
+        </div>
+      </Slide>
       <div className="w-full">
         <Slide delay={0.3}>
           <p className="p-2 text-foreground-2 text-xl">
