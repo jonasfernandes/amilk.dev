@@ -1,6 +1,12 @@
 export class LocalStorage {
   static get(key: string) {
-    return JSON.parse(localStorage.getItem(key) || '{}');
+    const item = localStorage.getItem(key) || '{}';
+
+    try {
+      return JSON.parse(item);
+    } catch (error) {
+      return item;
+    }
   }
 
   static set(key: string, value: any) {
