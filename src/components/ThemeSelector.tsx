@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
-import SunIcon from '@/assets/icons/sun';
-import MoonIcon from '@/assets/icons/moon';
+import SunIcon from '@/assets/icons/Sun';
+import MoonIcon from '@/assets/icons/Moon';
 import { LocalStorage } from '@/utils/localStorage';
 import { storageKeys } from '@/utils/constants/storageKeys';
 import Magnetic from '@/components/effects/Magnetic';
