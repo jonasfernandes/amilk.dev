@@ -1,0 +1,19 @@
+{
+  "menu": {
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Yo! <1 />, I'm <2>{{name}}</2>",
+    "title": "Frontend <1 /> Developer"
+  },
+  "github": {
+    "title": "GitHub Contributions",
+    "contributions_in": "{{count}} contributions in {{year}}",
+    "the_last_year": "{{count}} contributions in the last year",
+    "less": "Less",
+    "more": "More",
+    "no_contributions_on": "No contributions on {{date}}",
+    "contributions_on": "{{count}} contributions on {{date}}"
+  }
+}

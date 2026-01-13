@@ -1,0 +1,165 @@
+@import 'flag-icons/css/flag-icons.min.css';
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: 'Major Mono';
+  src:
+    url('./assets/fonts/major-mono/regular.woff2') format('woff2'),
+    url('./assets/fonts/major-mono/regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Proxima Nova Light';
+  src:
+    url('./assets/fonts/proxima-nova/light.woff2') format('woff2'),
+    url('./assets/fonts/proxima-nova/light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src:
+    url('./assets/fonts/proxima-nova/regular.woff2') format('woff2'),
+    url('./assets/fonts/proxima-nova/regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Proxima Nova Bold';
+  src:
+    url('./assets/fonts/proxima-nova/bold.woff2') format('woff2'),
+    url('./assets/fonts/proxima-nova/bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+
+  @variant md {
+    font-size: 16px;
+  }
+
+  scrollbar-color: var(--foreground-2) var(--background);
+}
+
+body {
+  @apply m-0;
+  font-family: 'Proxima Nova', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-image: url(./assets/images/noise.png);
+  background-size: 200px 200px;
+  background-position: 0 0;
+}
+
+:root {
+  --background: #ffffff;
+  --background-2: rgba(255, 255, 255, 0.6);
+  --foreground: #3f3f46;
+  --foreground-2: #5d5d68;
+  --primary: #2a71d2;
+  --github-cell-stroke: rgba(0, 0, 0, 0.08);
+  --github-container: hsla(0, 0%, 98%, 0.4);
+  --github-level-color-0: #ebedf0;
+  --github-level-color-1: #bbdefb;
+  --github-level-color-2: #64b5f6;
+  --github-level-color-3: #1d88e5;
+  --github-level-color-4: #0c47a0;
+  --github-loading: oklab(from var(--github-level-color-0) calc(l * 0.9) a b);
+}
+
+.dark {
+  --background: #18181b;
+  --background-2: rgba(39, 39, 43, 0.4);
+  --foreground: #ffffff;
+  --foreground-2: #dddddd;
+  --primary: #2a71d2;
+  --github-cell-stroke: rgba(255, 255, 255, 0.04);
+  --github-container: rgba(39, 39, 43, 0.4);
+  --github-level-color-0: #161b22;
+  --github-level-color-1: #0c47a0;
+  --github-level-color-2: #1d88e5;
+  --github-level-color-3: #64b5f6;
+  --github-level-color-4: #bbdefb;
+  --github-loading: oklab(from var(--github-level-color-0) calc(l * 1.2) a b);
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-background-2: var(--background-2);
+  --color-foreground: var(--foreground);
+  --color-foreground-2: var(--foreground-2);
+  --color-primary: var(--primary);
+  --color-github-cell-stroke: var(--github-cell-stroke);
+  --color-github-container: var(--github-container);
+  --color-github-level-0: var(--github-level-color-0);
+  --color-github-level-1: var(--github-level-color-1);
+  --color-github-level-2: var(--github-level-color-2);
+  --color-github-level-3: var(--github-level-color-3);
+  --color-github-level-4: var(--github-level-color-4);
+
+  --animate-wave: wave 2.5s ease-in-out infinite;
+  --animate-loading-git: loadingGithub 1.75s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  10% {
+    transform: rotate(14deg);
+  }
+
+  20% {
+    transform: rotate(-8deg);
+  }
+
+  30% {
+    transform: rotate(14deg);
+  }
+
+  40% {
+    transform: rotate(-4deg);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+
+  60% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes loadingGithub {
+  0% {
+    fill: oklab(from var(--github-level-color-0) l a b);
+  }
+  50% {
+    fill: var(--github-loading);
+  }
+  100% {
+    fill: oklab(from var(--github-level-color-0) l a b);
+  }
+}
