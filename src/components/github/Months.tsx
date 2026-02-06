@@ -19,7 +19,8 @@ export default function Months() {
 
     const monthOffset = monthWeekDay > 0 ? monthIndex + 1 : monthIndex;
 
-    return monthOffset > 0 ? monthOffset * 17 : 0;
+    const finalPos = monthOffset * 17;
+    return monthOffset > 0 ? finalPos : 0;
   };
 
   const getTranslatedMonth = (month: GitContributionMonth) => {
@@ -28,13 +29,22 @@ export default function Months() {
     return normalizeMonthStyle(result);
   };
 
+  const correctPlacementMonths = (month: GitContributionMonth) => {
+    const correctOffset = getMonthOffset(month.firstDay);
+    if (correctOffset > 870) {
+      return 870;
+    }
+
+    return getMonthOffset(month.firstDay);
+  };
+
   return (
     <g className="text-foreground">
       {months?.map((month, index) => (
         <text
           className="fill-current text-sm"
           key={index}
-          x={getMonthOffset(month.firstDay)}
+          x={correctPlacementMonths(month)}
           dominantBaseline="hanging"
         >
           {getTranslatedMonth(month)}
