@@ -1,5 +1,3 @@
-'use client';
-
 import GitHubCalendar from '@/components/github/Calendar';
 import Button from '@/components/Button';
 import { GithubDataProvider, useGithubDataContext } from '@/context/GithubDataContext';

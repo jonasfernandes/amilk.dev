@@ -1,61 +1,48 @@
 import { retrieveContributionData } from '@/services/github';
-import { useEffect, useState } from 'react';
-import { GitContributionMonth, GitContributionWeek } from '@/types/github';
+import { useState } from 'react';
+import { GithubData } from '@/types/github';
 import { getFakeContribution, getFakeMonths } from '@/utils/githubContribution';
+import { useQuery } from '@tanstack/react-query';
 import getErrorMessage from '@/utils/getError';
+
+const userName = import.meta.env.VITE_GITHUB_USERNAME;
 
 export default function useGithubData() {
   const [calendarYear, setCalendarYear] = useState<number | undefined>();
-  const [weeks, setWeeks] = useState<GitContributionWeek[]>([]);
-  const [months, setMonths] = useState<GitContributionMonth[]>([]);
-  const [totalContributions, setTotalContributions] = useState(0);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
-  const userName = import.meta.env.VITE_GITHUB_USERNAME;
+  const to = calendarYear ? `${calendarYear}-01-01T00:00:00Z` : null;
+  const from = calendarYear ? `${calendarYear}-12-31T23:59:59Z` : null;
 
-  const getData = async () => {
-    setWeeks(getFakeContribution());
-    setMonths(getFakeMonths());
-    setLoading(true);
+  const { isPending, data, error } = useQuery({
+    queryKey: [`githubData-${calendarYear}`, to, from],
+    queryFn: () => retrieveContributionData(userName, to, from),
+    staleTime: 1000 * 60 * 5, // 5 minutes cached
+  });
 
-    try {
-      const { errors, data } = await retrieveContributionData(
-        userName,
-        calendarYear ? `${calendarYear}-01-01T00:00:00Z` : null,
-        calendarYear ? `${calendarYear}-12-31T23:59:59Z` : null,
-      );
+  if (isPending) {
+    return {
+      loading: isPending,
+      weeks: getFakeContribution(),
+      months: getFakeMonths(),
+    };
+  }
 
-      if (errors) {
-        setError(errors[0].message);
-        return;
-      }
+  if (data?.errors || error) {
+    return {
+      error: data?.errors?.[0]?.message || getErrorMessage(error),
+    };
+  }
 
-      const {
-        user: {
-          contributionsCollection: {
-            contributionCalendar: { months, weeks, totalContributions },
-          },
-        },
-      } = data;
-
-      setMonths(months.length > 12 ? months.slice(1, months.length) : months);
-      setWeeks(weeks);
-      setTotalContributions(totalContributions);
-    } catch (error) {
-      setError(getErrorMessage(error));
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    getData();
-  }, [calendarYear]);
+  const {
+    user: {
+      contributionsCollection: {
+        contributionCalendar: { months, weeks, totalContributions },
+      },
+    },
+  } = data?.data || ({} as GithubData['data']);
 
   return {
-    error,
-    loading,
+    loading: isPending,
     calendarYear,
     setCalendarYear,
     weeks,

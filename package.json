@@ -14,10 +14,11 @@
   },
   "dependencies": {
     "@portabletext/react": "^4.0.3",
-    "@sanity/client": "^7.12.0",
+    "@sanity/client": "^7.14.1",
     "@sanity/image-url": "^1.2.0",
     "@tailwindcss/vite": "^4.0.6",
     "@tanstack/react-devtools": "^0.2.2",
+    "@tanstack/react-query": "^5.90.20",
     "@tanstack/react-router": "^1.130.2",
     "@tanstack/react-router-devtools": "^1.131.5",
     "@tanstack/react-router-ssr-query": "^1.131.7",
@@ -40,6 +41,7 @@
   "devDependencies": {
     "@eslint/js": "^9.37.0",
     "@tanstack/eslint-config": "^0.3.0",
+    "@tanstack/eslint-plugin-query": "^5.91.4",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.2.0",
     "@types/node": "^24.7.0",

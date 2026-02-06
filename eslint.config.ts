@@ -4,6 +4,7 @@ import tseslint from 'typescript-eslint';
 import pluginReact from 'eslint-plugin-react';
 import { defineConfig } from 'eslint/config';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
+import pluginQuery from '@tanstack/eslint-plugin-query';
 
 export default defineConfig([
   {
@@ -12,7 +13,8 @@ export default defineConfig([
     extends: ['js/recommended'],
     languageOptions: { globals: globals.browser },
   },
-  tseslint.configs.recommended,
+  ...pluginQuery.configs['flat/recommended'],
+  ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   eslintConfigPrettier,
   {
