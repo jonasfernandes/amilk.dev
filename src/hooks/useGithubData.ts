@@ -1,6 +1,6 @@
 import { retrieveContributionData } from '@/services/github';
 import { GithubData } from '@/types/github';
-import { getFakeContribution, getFakeMonths } from '@/utils/githubContribution';
+import { getFakeWeeks, getFakeMonths } from '@/utils/githubContribution';
 import { useQuery } from '@tanstack/react-query';
 import getErrorMessage from '@/utils/getError';
 import { useGithubStore } from '@/store/github';
@@ -22,7 +22,7 @@ export default function useGithubData() {
   if (isPending) {
     return {
       loading: isPending,
-      weeks: getFakeContribution(),
+      weeks: getFakeWeeks(),
       months: getFakeMonths(),
     };
   }
