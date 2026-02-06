@@ -21,22 +21,14 @@ export default function Magnetic({
       right = 0,
       bottom = 0,
     } = ref.current?.getBoundingClientRect() || {};
-    console.log(ref.current);
 
     if (left && top) {
       const middleX = clientX - (left + width / 2);
       const middleY = clientY - (top + height / 2);
       setPosition({ x: middleX * 0.1, y: middleY * 0.1 });
     } else {
-      console.log(clientX);
-      console.log(clientY);
-      console.log(right);
-      console.log(bottom);
-      console.log(width);
-      console.log(height);
       const middleX = clientX - (right + width / 2);
       const middleY = clientY - (bottom + height / 2);
-      console.log({ x: middleX * 0.1, y: middleY * 0.1 });
       setPosition({ x: middleX * 0.1, y: middleY * 0.1 });
     }
   };
