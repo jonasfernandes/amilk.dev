@@ -1,9 +1,9 @@
 import SettingsIcon from '@/assets/icons/Settings';
 import Magnetic from '@/components/effects/Magnetic';
-import { useStickyElements } from '@/store/styckElements';
+import { useStickyElementsStore } from '@/store/styckElements';
 
 export default function Config() {
-  const { setStickyElementsRef } = useStickyElements();
+  const { setStickyElementsRef } = useStickyElementsStore();
 
   return (
     <Magnetic>

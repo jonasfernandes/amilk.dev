@@ -6,7 +6,7 @@ interface StickyElementsStore {
   setStickyElementsRef: (element: HTMLElement | null) => void;
 }
 
-export const useStickyElements = create<StickyElementsStore>((set) => ({
+export const useStickyElementsStore = create<StickyElementsStore>((set) => ({
   stickyElementsRef: [],
   setStickyElementsRef: (element: HTMLElement | null) => {
     if (!element) {

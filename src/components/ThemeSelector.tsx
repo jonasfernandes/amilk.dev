@@ -5,12 +5,12 @@ import MoonIcon from '@/assets/icons/Moon';
 import { LocalStorage } from '@/utils/localStorage';
 import { storageKeys } from '@/utils/constants/storageKeys';
 import Magnetic from '@/components/effects/Magnetic';
-import { useStickyElements } from '@/store/styckElements';
+import { useStickyElementsStore } from '@/store/styckElements';
 
 export default function ThemeSelector() {
   const [theme, setTheme] = useState('');
   const [hasMounted, setHasMounted] = useState(false);
-  const { setStickyElementsRef } = useStickyElements();
+  const { setStickyElementsRef } = useStickyElementsStore();
 
   function updateTheme() {
     setTheme(theme === 'dark' ? 'light' : 'dark');

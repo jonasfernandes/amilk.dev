@@ -1,6 +1,6 @@
 import { MouseEventHandler } from 'react';
 import Magnetic from '@/components/effects/Magnetic';
-import { useStickyElements } from '@/store/styckElements';
+import { useStickyElementsStore } from '@/store/styckElements';
 import { motion } from 'framer-motion';
 
 export default function Button({
@@ -12,7 +12,7 @@ export default function Button({
   active?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }) {
-  const { setStickyElementsRef } = useStickyElements();
+  const { setStickyElementsRef } = useStickyElementsStore();
 
   return (
     <Magnetic>
