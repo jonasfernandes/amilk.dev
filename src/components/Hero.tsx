@@ -3,10 +3,13 @@ import SaluteHand from '@/components/SaluteHand';
 import { urlFor } from '@/utils/sanityImageUrl';
 import Slide from '@/components/effects/Slide';
 import { Trans } from 'react-i18next';
-import { useLoaderData } from '@tanstack/react-router';
+import { getProfile } from '@/services/profile';
+import { use } from 'react';
+
+const getProfilePromise = getProfile();
 
 export default function Hero() {
-  const profile = useLoaderData({ from: '/' });
+  const profile = use(getProfilePromise);
 
   if ('error' in profile) {
     return <ErrorComponent error={new Error(profile.description)} />;
