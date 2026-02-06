@@ -1,7 +1,7 @@
-import { useGithubDataContext } from '@/context/GithubDataContext';
 import { githubKeysLevel } from '@/utils/constants/githubKeys';
-import { useI18nContext } from '@/context/I18nContext';
 import { useTranslation } from 'react-i18next';
+import { useI18nStore } from '@/store/i18n';
+import useGithubData from '@/hooks/useGithubData';
 
 export default function Day({
   date,
@@ -16,8 +16,8 @@ export default function Day({
   weekday: number;
   offset: number;
 }) {
-  const { loading } = useGithubDataContext();
-  const { currentLanguage } = useI18nContext();
+  const { loading } = useGithubData();
+  const { currentLanguage } = useI18nStore();
   const { t } = useTranslation();
 
   const getLevelColor = () => {

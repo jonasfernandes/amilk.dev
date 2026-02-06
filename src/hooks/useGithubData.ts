@@ -1,14 +1,14 @@
 import { retrieveContributionData } from '@/services/github';
-import { useState } from 'react';
 import { GithubData } from '@/types/github';
 import { getFakeContribution, getFakeMonths } from '@/utils/githubContribution';
 import { useQuery } from '@tanstack/react-query';
 import getErrorMessage from '@/utils/getError';
+import { useGithubStore } from '@/store/github';
 
 const userName = import.meta.env.VITE_GITHUB_USERNAME;
 
 export default function useGithubData() {
-  const [calendarYear, setCalendarYear] = useState<number | undefined>();
+  const { calendarYear } = useGithubStore();
 
   const to = calendarYear ? `${calendarYear}-01-01T00:00:00Z` : null;
   const from = calendarYear ? `${calendarYear}-12-31T23:59:59Z` : null;
@@ -43,8 +43,6 @@ export default function useGithubData() {
 
   return {
     loading: isPending,
-    calendarYear,
-    setCalendarYear,
     weeks,
     months,
     totalContributions,

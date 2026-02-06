@@ -2,12 +2,14 @@
 
 import Week from '@/components/github/Week';
 import Months from '@/components/github/Months';
-import { useGithubDataContext } from '@/context/GithubDataContext';
 import Day from '@/components/github/Day';
 import { useTranslation } from 'react-i18next';
+import { useGithubStore } from '@/store/github';
+import useGithubData from '@/hooks/useGithubData';
 
 export default function Calendar() {
-  const { calendarYear, weeks, totalContributions, loading } = useGithubDataContext();
+  const { calendarYear } = useGithubStore();
+  const { weeks, totalContributions, loading } = useGithubData();
   const { t } = useTranslation();
 
   const gitTranslatedMessage = calendarYear
@@ -24,7 +26,7 @@ export default function Calendar() {
       <div className="overflow-x-auto">
         <svg width="897" height="137" viewBox="0 0 897 137" className="">
           <Months />
-          {weeks.map((week, index) => (
+          {weeks?.map((week, index) => (
             <Week key={index} week={week} offset={index} />
           ))}
         </svg>

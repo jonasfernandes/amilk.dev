@@ -1,13 +1,15 @@
 import GitHubCalendar from '@/components/github/Calendar';
 import Button from '@/components/Button';
-import { GithubDataProvider, useGithubDataContext } from '@/context/GithubDataContext';
 import EmptyState from './EmptyState';
 import { getGitHubYears } from '@/utils/githubContribution';
 import Slide from '@/components/effects/Slide';
 import { useTranslation } from 'react-i18next';
+import { useGithubStore } from '@/store/github';
+import useGithubData from '@/hooks/useGithubData';
 
-function ContributionGraphContent() {
-  const { calendarYear, setCalendarYear, error } = useGithubDataContext();
+export default function ContributionGraph() {
+  const { calendarYear, setCalendarYear } = useGithubStore();
+  const { error } = useGithubData();
   const { t } = useTranslation();
 
   const joinYear = Number(import.meta.env.VITE_GITHUB_JOIN_YEAR);
@@ -39,13 +41,5 @@ function ContributionGraphContent() {
         </div>
       </Slide>
     </section>
-  );
-}
-
-export default function ContributionGraph() {
-  return (
-    <GithubDataProvider>
-      <ContributionGraphContent />
-    </GithubDataProvider>
   );
 }
