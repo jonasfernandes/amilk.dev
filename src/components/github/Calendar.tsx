@@ -24,7 +24,7 @@ export default function Calendar() {
   return (
     <article className="flex flex-col gap-4">
       <div className="overflow-x-auto">
-        <svg width="897" height="137" viewBox="0 0 897 137" className="">
+        <svg width="898" height="139" viewBox="0 0 897 137" className="">
           <Months />
           {weeks?.map((week, index) => (
             <Week key={index} week={week} offset={index} />
