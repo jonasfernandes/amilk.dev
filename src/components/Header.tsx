@@ -1,29 +1,35 @@
 import { Link } from '@tanstack/react-router';
 import ThemeSelector from '@/components/ThemeSelector';
 import Magnetic from '@/components/effects/Magnetic';
-import MyLink from '@/components/Link';
 import { useTranslation } from 'react-i18next';
+import Indicator from './Indicator';
 
 export default function Header() {
   const { t } = useTranslation();
 
   return (
-    <header className="p-4 flex gap-2 text-foreground justify-between items-center border-b border-zinc-200 dark:border-zinc-800">
+    <header className="text-foreground flex items-center justify-between gap-2 p-4">
       <div className="font-bold">
-        <Link to="/" className="font-[Major_Mono] text-xl px-2 py-1">
+        <Link to="/" className="px-2 py-1 font-[Major_Mono] text-xl">
           Amilk
         </Link>
       </div>
 
-      <nav className="flex flex-row gap-6">
+      <nav className="flex flex-row">
         <Magnetic>
-          <div>
-            <MyLink to="/">{t('menu.about')}</MyLink>
+          <div className="group relative">
+            <Link className="px-4 py-2" to="/">
+              {t('menu.about')}
+            </Link>
+            <Indicator />
           </div>
         </Magnetic>
         <Magnetic>
-          <div>
-            <MyLink to="/">{t('menu.contact')}</MyLink>
+          <div className="group relative">
+            <Link className="px-4 py-2" to="/">
+              {t('menu.contact')}
+            </Link>
+            <Indicator />
           </div>
         </Magnetic>
       </nav>

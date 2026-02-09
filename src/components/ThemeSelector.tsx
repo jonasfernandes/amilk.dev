@@ -41,7 +41,7 @@ export default function ThemeSelector() {
   if (!hasMounted)
     return (
       <span className="p-2">
-        <span className="flex animate-pulse w-[22px] h-[22px] rounded-full bg-foreground/10 border border-foreground/30"></span>
+        <span className="bg-foreground/10 border-foreground/30 flex h-[22px] w-[22px] animate-pulse rounded-full border"></span>
       </span>
     );
 
@@ -50,7 +50,7 @@ export default function ThemeSelector() {
       <div>
         <button
           onClick={updateTheme}
-          className={`cursor-pointer text-foreground rounded-full p-2 duration-300 transition-all group: ${
+          className={`text-foreground hover:text-primary group: cursor-pointer rounded-full p-2 transition-all duration-300 ${
             theme === 'dark' ? 'rotate-0' : '-rotate-180'
           }`}
           aria-label="Toggle Theme"
