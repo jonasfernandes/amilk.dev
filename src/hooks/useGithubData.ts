@@ -27,9 +27,10 @@ export default function useGithubData() {
     };
   }
 
-  if (data?.status || error) {
+  if (data?.status || data?.errors || error) {
+    const dataError = data?.errors?.[0]?.message || data?.message;
     return {
-      error: data?.message || getErrorMessage(error),
+      error: dataError || getErrorMessage(error),
     };
   }
 
