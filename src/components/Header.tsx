@@ -17,10 +17,14 @@ export default function Header() {
 
       <nav className="flex flex-row gap-6">
         <Magnetic>
-          <MyLink to="/">{t('menu.about')}</MyLink>
+          <div>
+            <MyLink to="/">{t('menu.about')}</MyLink>
+          </div>
         </Magnetic>
         <Magnetic>
-          <MyLink to="/">{t('menu.contact')}</MyLink>
+          <div>
+            <MyLink to="/">{t('menu.contact')}</MyLink>
+          </div>
         </Magnetic>
       </nav>
 
