@@ -27,5 +27,7 @@ export default function index({ children }: { children: React.ReactElement }) {
     });
   }, []);
 
-  return React.cloneElement(children, { ref: magnetic });
+  const childrenWithRef = <div ref={magnetic}>{children}</div>;
+
+  return React.cloneElement(childrenWithRef);
 }
