@@ -1,7 +1,7 @@
 import { GitContributionMonth } from '@/types/github';
 import { normalizeMonthStyle } from '@/utils/date';
 import { useI18nStore } from '@/store/i18n';
-import useGithubData from '@/hooks/useGithubData';
+import useGithubData from '@/features/github/hook/useGithubData';
 
 export default function Months() {
   const { weeks, months } = useGithubData();

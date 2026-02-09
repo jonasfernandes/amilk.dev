@@ -1,11 +1,11 @@
-import GitHubCalendar from '@/components/github/Calendar';
+import GitHubCalendar from '@/features/github/components/Calendar';
 import Button from '@/components/Button';
-import EmptyState from './EmptyState';
+import EmptyState from '@/components/EmptyState';
 import { getGitHubYears } from '@/utils/githubContribution';
 import Slide from '@/components/effects/Slide';
 import { useTranslation } from 'react-i18next';
-import { useGithubStore } from '@/store/github';
-import useGithubData from '@/hooks/useGithubData';
+import { useGithubStore } from '@/features/github/store/github';
+import useGithubData from '@/features/github/hook/useGithubData';
 
 export default function ContributionGraph() {
   const { calendarYear, setCalendarYear } = useGithubStore();

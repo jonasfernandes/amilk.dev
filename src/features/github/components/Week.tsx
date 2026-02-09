@@ -1,4 +1,4 @@
-import Day from '@/components/github/Day';
+import Day from '@/features/github/components/Day';
 import { GitContributionWeek } from '@/types/github';
 
 export default function Week({ week, offset }: { week: GitContributionWeek; offset: number }) {

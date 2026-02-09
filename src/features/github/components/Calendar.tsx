@@ -1,11 +1,11 @@
 'use client';
 
-import Week from '@/components/github/Week';
-import Months from '@/components/github/Months';
-import Day from '@/components/github/Day';
+import Week from '@/features/github/components/Week';
+import Months from '@/features/github/components/Months';
+import Day from '@/features/github/components/Day';
 import { useTranslation } from 'react-i18next';
-import { useGithubStore } from '@/store/github';
-import useGithubData from '@/hooks/useGithubData';
+import { useGithubStore } from '@/features/github/store/github';
+import useGithubData from '@/features/github/hook/useGithubData';
 
 export default function Calendar() {
   const { calendarYear } = useGithubStore();

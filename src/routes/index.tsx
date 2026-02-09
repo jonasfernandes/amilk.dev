@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import Hero from '@/components/Hero';
-import ContributionGraph from '@/components/GithubGraph';
+import ContributionGraph from '@/features/github';
 
 export const Route = createFileRoute('/')({
   component: App,

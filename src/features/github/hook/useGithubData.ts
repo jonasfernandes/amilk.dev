@@ -3,7 +3,7 @@ import { GithubData } from '@/types/github';
 import { getFakeWeeks, getFakeMonths } from '@/utils/githubContribution';
 import { useQuery } from '@tanstack/react-query';
 import getErrorMessage from '@/utils/getError';
-import { useGithubStore } from '@/store/github';
+import { useGithubStore } from '@/features/github/store/github';
 
 const userName = import.meta.env.VITE_GITHUB_USERNAME;
 

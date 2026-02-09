@@ -1,7 +1,7 @@
 import { githubKeysLevel } from '@/utils/constants/githubKeys';
 import { useTranslation } from 'react-i18next';
 import { useI18nStore } from '@/store/i18n';
-import useGithubData from '@/hooks/useGithubData';
+import useGithubData from '@/features/github/hook/useGithubData';
 
 export default function Day({
   date,
