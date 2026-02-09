@@ -32,8 +32,8 @@ export default function Calendar() {
         </svg>
       </div>
       <footer className="flex flex-row justify-between">
-        <div className="text-sm text-foreground">{gitTotalMessage}</div>
-        <div className="flex flex-row items-center gap-1 text-sm text-foreground">
+        <div className="text-foreground text-sm">{gitTotalMessage}</div>
+        <div className="text-foreground flex flex-row items-center gap-1 text-sm">
           <span className="mr-1">{t('github.less')}</span>
           <svg width="13" height="13">
             <Day date="" level="NONE" weekday={-1} offset={0} />

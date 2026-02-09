@@ -1,7 +1,7 @@
 export default function SaluteHand() {
   return (
     <span
-      className={`inline-block origin-[70%_70%] transition-transform duration-300 animate-wave`}
+      className={`animate-wave inline-block origin-[70%_70%] transition-transform duration-300`}
       role="img"
       aria-label="Waving hand"
       style={{

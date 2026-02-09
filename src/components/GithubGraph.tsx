@@ -22,12 +22,12 @@ export default function ContributionGraph() {
   return (
     <section className="flex flex-col gap-4 lg:items-center">
       <Slide delay={0.5}>
-        <p className="font-[Proxima_Nova_Bold] text-3xl text-foreground-2">{t('github.title')}</p>
-        <div className="flex flex-col xl:flex-row gap-4 mt-4">
-          <div className="bg-github-container border dark:border-zinc-800 border-zinc-200 p-8 rounded-lg max-w-fit max-h-fit">
+        <p className="text-foreground-2 font-[Proxima_Nova_Bold] text-3xl">{t('github.title')}</p>
+        <div className="mt-4 flex flex-col gap-4 xl:flex-row">
+          <div className="bg-github-container max-h-fit max-w-fit rounded-lg border border-zinc-200 p-8 dark:border-zinc-800">
             <GitHubCalendar />
           </div>
-          <div className="flex justify-start xl:flex-col flex-row gap-3">
+          <div className="flex flex-row justify-start gap-3 xl:flex-col">
             {years.slice(0, 5).map((year) => (
               <Button
                 key={year}

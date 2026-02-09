@@ -36,18 +36,18 @@ export default function Button({
   return (
     <Magnetic>
       <button
-        className={`overflow-hidden relative w-full cursor-pointer rounded-lg text-center px-4 py-2 ${
+        className={`relative w-full cursor-pointer overflow-hidden rounded-lg px-4 py-2 text-center ${
           active ? 'bg-primary text-white' : 'bg-background-2 text-foreground'
-        } hover:text-white transition-colors duration-400 ease-in`}
+        } transition-colors duration-400 ease-in hover:text-white`}
         onMouseEnter={manageMouseEnter}
         onMouseLeave={manageMouseLeave}
         onClick={onClick}
         title={`View Graph for the year ${children}`}
       >
-        <p className="z-10 relative text-sm font-medium">{children}</p>
+        <p className="relative z-10 text-sm font-medium">{children}</p>
         <div
           ref={circle}
-          className="absolute top-full left-1/2 w-full h-[150%] rounded-[50%] bg-primary transform -translate-x-1/2"
+          className="bg-primary absolute top-full left-1/2 h-[150%] w-full -translate-x-1/2 transform rounded-[50%]"
         ></div>
       </button>
     </Magnetic>
