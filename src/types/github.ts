@@ -6,11 +6,9 @@ export type GithubData = {
       contributionsCollection: GitContributionsCollection;
     };
   };
-  errors: {
-    code: string;
-    message: string;
-    type: string;
-  }[];
+  message?: string;
+  status?: number;
+  documentation_url?: string;
 };
 
 export type GitContributionsCollection = {
