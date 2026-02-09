@@ -1,4 +1,4 @@
-import { retrieveContributionData } from '@/services/github';
+import { retrieveContributionData } from '@/features/github/service/github';
 import { GithubData } from '@/types/github';
 import { getFakeWeeks, getFakeMonths } from '@/utils/githubContribution';
 import { useQuery } from '@tanstack/react-query';
