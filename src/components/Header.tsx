@@ -15,26 +15,28 @@ export default function Header() {
         </Link>
       </div>
 
-      <nav className="flex flex-row">
-        <Magnetic>
-          <div className="group relative">
-            <Link className="px-4 py-2" to="/">
-              {t('menu.about')}
-            </Link>
-            <Indicator />
-          </div>
-        </Magnetic>
-        <Magnetic>
-          <div className="group relative">
-            <Link className="px-4 py-2" to="/">
-              {t('menu.contact')}
-            </Link>
-            <Indicator />
-          </div>
-        </Magnetic>
-      </nav>
+      <div className="flex items-center gap-4">
+        <nav className="flex flex-row">
+          <Magnetic>
+            <div className="group relative">
+              <Link className="px-4 py-2" to="/">
+                {t('menu.about')}
+              </Link>
+              <Indicator />
+            </div>
+          </Magnetic>
+          <Magnetic>
+            <div className="group relative">
+              <Link className="px-4 py-2" to="/">
+                {t('menu.contact')}
+              </Link>
+              <Indicator />
+            </div>
+          </Magnetic>
+        </nav>
 
-      <ThemeSelector />
+        <ThemeSelector />
+      </div>
     </header>
   );
 }

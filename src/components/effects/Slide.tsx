@@ -5,10 +5,9 @@ import { useRef, useEffect, RefObject } from 'react';
 interface SlideProps {
   children: React.ReactNode;
   delay?: number;
-  className?: string;
 }
 
-export default function Slide({ children, className, delay }: SlideProps) {
+export default function Slide({ children, delay }: SlideProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInview = useInView(ref as RefObject<Element>, { once: true });
   const controls = useAnimation();
@@ -35,7 +34,7 @@ export default function Slide({ children, className, delay }: SlideProps) {
       animate={controls}
       initial="start"
     >
-      <div className={className}>{children}</div>
+      {children}
     </motion.div>
   );
 }

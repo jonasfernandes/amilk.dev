@@ -20,7 +20,7 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <main className="mx-auto mt-20 max-w-6xl px-6 sm:px-16 lg:mt-32">
+      <main className="mx-auto max-w-6xl px-3 sm:mt-20 sm:px-6 md:px-16 lg:mt-32">
         <Hero />
         <ContributionGraph />
       </main>

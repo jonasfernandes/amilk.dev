@@ -20,22 +20,24 @@ export default function ContributionGraph() {
   }
 
   return (
-    <Slide delay={0.5} className="flex flex-col gap-4">
-      <p className="text-foreground-2 font-[Proxima_Nova_Bold] text-3xl">{t('github.title')}</p>
-      <div className="flex flex-col gap-4 xl:flex-row">
-        <div className="bg-github-container flex justify-center rounded-lg border border-zinc-200 p-4 sm:p-8 xl:grow xl:justify-center xl:px-4 dark:border-zinc-800">
-          <GitHubCalendar />
-        </div>
-        <div className="flex flex-row justify-start gap-3 xl:flex-col">
-          {years.slice(0, 5).map((year) => (
-            <Button
-              key={year}
-              active={calendarYear === year}
-              onClick={() => setCalendarYear(year === calendarYear ? undefined : year)}
-            >
-              {year.toString()}
-            </Button>
-          ))}
+    <Slide delay={0.6}>
+      <div className="flex flex-col gap-4">
+        <p className="text-foreground-2 font-[Proxima_Nova_Bold] text-3xl">{t('github.title')}</p>
+        <div className="flex flex-col gap-4 xl:flex-row">
+          <div className="bg-github-container flex justify-center rounded-lg border border-zinc-200 p-4 sm:p-8 xl:grow xl:justify-center xl:px-4 dark:border-zinc-800">
+            <GitHubCalendar />
+          </div>
+          <div className="flex flex-row justify-start gap-3 xl:flex-col">
+            {years.slice(0, 5).map((year) => (
+              <Button
+                key={year}
+                active={calendarYear === year}
+                onClick={() => setCalendarYear(year === calendarYear ? undefined : year)}
+              >
+                {year.toString()}
+              </Button>
+            ))}
+          </div>
         </div>
       </div>
     </Slide>
