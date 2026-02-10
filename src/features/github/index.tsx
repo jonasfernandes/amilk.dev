@@ -23,7 +23,7 @@ export default function ContributionGraph() {
     <Slide delay={0.5} className="flex flex-col gap-4">
       <p className="text-foreground-2 font-[Proxima_Nova_Bold] text-3xl">{t('github.title')}</p>
       <div className="flex flex-col gap-4 xl:flex-row">
-        <div className="bg-github-container flex justify-center rounded-lg border border-zinc-200 px-8 py-8 xl:grow xl:justify-center xl:px-4 dark:border-zinc-800">
+        <div className="bg-github-container flex justify-center rounded-lg border border-zinc-200 p-4 sm:p-8 xl:grow xl:justify-center xl:px-4 dark:border-zinc-800">
           <GitHubCalendar />
         </div>
         <div className="flex flex-row justify-start gap-3 xl:flex-col">

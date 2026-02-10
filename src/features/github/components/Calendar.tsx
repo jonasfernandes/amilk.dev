@@ -31,7 +31,7 @@ export default function Calendar() {
           ))}
         </svg>
       </div>
-      <footer className="flex flex-row justify-between">
+      <footer className="flex flex-row items-baseline justify-between gap-6">
         <div className="text-foreground text-sm">{gitTotalMessage}</div>
         <div className="text-foreground flex flex-row items-center gap-1 text-sm">
           <span className="mr-1">{t('github.less')}</span>
