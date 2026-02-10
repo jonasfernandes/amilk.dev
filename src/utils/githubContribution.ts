@@ -1,5 +1,4 @@
 import { githubKeysLevel } from '@/utils/constants/githubKeys';
-import { memo } from 'motion/react';
 
 export function getGitHubYears(joinYear: number | undefined): number[] {
   if (!joinYear) return [];
@@ -25,7 +24,7 @@ function getCorrectDay(index: number) {
   return String(day).padStart(2, '0');
 }
 
-export const getFakeWeeks = memo(function () {
+export function getFakeWeeks() {
   multipleDay = 0;
   let month = 1;
   let days = 1;
@@ -45,12 +44,12 @@ export const getFakeWeeks = memo(function () {
       };
     }),
   }));
-});
+}
 
-export const getFakeMonths = memo(function () {
+export function getFakeMonths() {
   return Array.from({ length: 12 }, (_, index: number) => ({
     firstDay: `${new Date().getFullYear()}-${getCorrectMonth(index + 1)}-01T00:00:00Z`,
     name: '',
     year: 0,
   }));
-});
+}

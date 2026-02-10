@@ -31,7 +31,7 @@
     "i18next-chained-backend": "^4.6.2",
     "i18next-http-backend": "^3.0.2",
     "i18next-resources-to-backend": "^1.2.1",
-    "motion": "^12.23.24",
+    "locomotive-scroll": "^5.0.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
