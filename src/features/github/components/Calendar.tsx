@@ -22,7 +22,7 @@ export default function Calendar() {
   const gitTotalMessage = loading ? '...' : gitTranslatedMessage;
 
   return (
-    <article className="flex flex-col gap-4">
+    <article className="flex max-w-full flex-col gap-4">
       <div className="overflow-x-auto">
         <svg width="898" height="139" viewBox="0 0 897 137" className="">
           <Months />

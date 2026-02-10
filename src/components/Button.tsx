@@ -36,7 +36,7 @@ export default function Button({
   return (
     <Magnetic>
       <button
-        className={`relative w-full cursor-pointer overflow-hidden rounded-lg px-4 py-2 text-center ${
+        className={`relative w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg px-4 py-2 text-center ${
           active ? 'bg-primary text-white' : 'bg-background-2 text-foreground'
         } transition-colors duration-400 ease-in hover:text-white`}
         onMouseEnter={manageMouseEnter}

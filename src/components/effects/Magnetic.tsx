@@ -21,13 +21,17 @@ export default function index({ children }: { children: React.ReactElement }) {
       xTo(x * 0.35);
       yTo(y * 0.35);
     });
-    magnetic.current?.addEventListener('mouseleave', (e) => {
+    magnetic.current?.addEventListener('mouseleave', () => {
       xTo(0);
       yTo(0);
     });
   }, []);
 
-  const childrenWithRef = <div ref={magnetic}>{children}</div>;
+  const childrenWithRef = (
+    <div ref={magnetic} className="flex">
+      {children}
+    </div>
+  );
 
   return React.cloneElement(childrenWithRef);
 }
