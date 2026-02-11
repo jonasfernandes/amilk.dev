@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Hero from '@/components/Hero';
 import ContributionGraph from '@/features/github';
 import { useEffect } from 'react';
+import Experiences from '@/features/experiences';
 
 export const Route = createFileRoute('/')({
   component: App,
@@ -33,6 +34,7 @@ function App() {
       <main className="mx-auto max-w-6xl px-3 sm:mt-20 sm:px-6 md:px-16 lg:mt-32">
         <Hero />
         <ContributionGraph />
+        <Experiences />
       </main>
     </QueryClientProvider>
   );
