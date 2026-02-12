@@ -16,7 +16,7 @@
     "no_contributions_on": "No contributions on {{date}}",
     "contributions_on": "{{count}} contributions on {{date}}"
   },
-  "experiences": {
-    "title": "Experiences"
+  "projects": {
+    "title": "Projects"
   }
 }
