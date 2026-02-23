@@ -20,6 +20,11 @@ i18n
         translation: pt,
       },
     },
+    detection: {
+      convertDetectedLanguage: (lng) => {
+        return lng.split('-')?.[0]; // Convert 'en-US' to 'en', 'pt-BR' to 'pt', etc.
+      },
+    },
   });
 
 export default i18n;
