@@ -1,7 +1,7 @@
 import { githubKeysLevel } from '@/utils/constants/githubKeys';
 import { useTranslation } from 'react-i18next';
-import { useI18nStore } from '@/store/i18n';
 import useGithubData from '@/features/github/hook/useGithubData';
+import i18n from '@/i18n';
 
 export default function Day({
   date,
@@ -17,7 +17,6 @@ export default function Day({
   offset: number;
 }) {
   const { loading } = useGithubData();
-  const { currentLanguage } = useI18nStore();
   const { t } = useTranslation();
 
   const getLevelColor = () => {
@@ -53,12 +52,12 @@ export default function Day({
 
     const dateWithoutTZ = new Date(date).toISOString().slice(0, -1);
     const day = new Date(dateWithoutTZ).getDate();
-    const formattedDate = new Date(dateWithoutTZ).toLocaleString(currentLanguage, {
+    const formattedDate = new Date(dateWithoutTZ).toLocaleString(i18n.language, {
       day: 'numeric',
       month: 'short',
     });
 
-    return `${formattedDate}${currentLanguage === 'en' ? getSuffix(day) : ''}`;
+    return `${formattedDate}${i18n.language === 'en' ? getSuffix(day) : ''}`;
   }
 
   const hasWeekDay = weekday >= 0;
