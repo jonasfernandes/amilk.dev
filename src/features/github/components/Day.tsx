@@ -2,6 +2,7 @@ import { githubKeysLevel } from '@/utils/constants/githubKeys';
 import { useTranslation } from 'react-i18next';
 import useGithubData from '@/features/github/hook/useGithubData';
 import i18n from '@/i18n';
+import { formatDateToLocale, getDateWithoutTZ } from '@/utils/date';
 
 export default function Day({
   date,
@@ -50,14 +51,10 @@ export default function Day({
   function formatDateWithSuffix() {
     if (!date) return '';
 
-    const dateWithoutTZ = new Date(date).toISOString().slice(0, -1);
-    const day = new Date(dateWithoutTZ).getDate();
-    const formattedDate = new Date(dateWithoutTZ).toLocaleString(i18n.language, {
-      day: 'numeric',
-      month: 'short',
-    });
+    const dateWithoutTZ = getDateWithoutTZ(date);
+    const formattedDate = formatDateToLocale(dateWithoutTZ, { day: 'numeric', month: 'short' });
 
-    return `${formattedDate}${i18n.language === 'en' ? getSuffix(day) : ''}`;
+    return `${formattedDate}${i18n.language === 'en' ? getSuffix(dateWithoutTZ.getDate()) : ''}`;
   }
 
   const hasWeekDay = weekday >= 0;
