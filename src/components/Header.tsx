@@ -19,7 +19,7 @@ export default function Header() {
         <nav className="flex flex-row">
           <Magnetic>
             <div className="group relative">
-              <Link className="px-4 py-2" to="/">
+              <Link className="px-4 py-2" to="/about">
                 {t('menu.about')}
               </Link>
               <Indicator />
