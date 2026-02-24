@@ -11,7 +11,7 @@ export const Route = createFileRoute('/')({
 
 function App() {
   return (
-    <main className="sm:mt-20 lg:mt-32">
+    <main className="overflow-hidden sm:mt-20 lg:mt-32">
       <Hero />
       <ContributionGraph />
       <Projects />
