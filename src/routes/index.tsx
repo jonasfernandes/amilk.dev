@@ -1,9 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import Hero from '@/components/Hero';
 import ContributionGraph from '@/features/github';
-import { useEffect } from 'react';
 import Projects from '@/features/projects';
 import { Contact } from '@/features/contact';
 
@@ -11,33 +9,13 @@ export const Route = createFileRoute('/')({
   component: App,
 });
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-      retry: false,
-    },
-  },
-});
-
-async function activeScroll() {
-  const LocomotiveScroll = (await import('locomotive-scroll')).default;
-  new LocomotiveScroll();
-}
-
 function App() {
-  useEffect(() => {
-    activeScroll();
-  }, []);
-
   return (
-    <QueryClientProvider client={queryClient}>
-      <main className="sm:mt-20 lg:mt-32">
-        <Hero />
-        <ContributionGraph />
-        <Projects />
-        <Contact />
-      </main>
-    </QueryClientProvider>
+    <main className="sm:mt-20 lg:mt-32">
+      <Hero />
+      <ContributionGraph />
+      <Projects />
+      <Contact />
+    </main>
   );
 }
