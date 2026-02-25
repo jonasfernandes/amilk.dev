@@ -74,6 +74,7 @@ body {
   --foreground: #3f3f46;
   --foreground-2: #5d5d68;
   --primary: #2a71d2;
+  --secondary: rgb(228 228 231);
   --github-cell-stroke: rgba(0, 0, 0, 0.08);
   --github-container: hsla(0, 0%, 98%, 0.4);
   --github-level-color-0: #ebedf0;
@@ -90,6 +91,7 @@ body {
   --foreground: #ffffff;
   --foreground-2: #dddddd;
   --primary: #2a71d2;
+  --secondary: rgb(39 39 42);
   --github-cell-stroke: rgba(255, 255, 255, 0.04);
   --github-container: rgba(39, 39, 43, 0.4);
   --github-level-color-0: #161b22;
@@ -106,6 +108,7 @@ body {
   --color-foreground: var(--foreground);
   --color-foreground-2: var(--foreground-2);
   --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
   --color-github-cell-stroke: var(--github-cell-stroke);
   --color-github-container: var(--github-container);
   --color-github-level-0: var(--github-level-color-0);
