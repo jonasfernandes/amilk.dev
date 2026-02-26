@@ -21,5 +21,5 @@ export async function getJobs() {
     };
   });
 
-  return updatedJobs;
+  return updatedJobs.sort((a, b) => b.from.getTime() - a.from.getTime());
 }
