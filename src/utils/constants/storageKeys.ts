@@ -1,4 +1,4 @@
 export const storageKeys = {
-  THEME: 'theme',
+  THEME: 'hamilTheme',
   LANGUAGE: 'i18nextLng',
 } as const;

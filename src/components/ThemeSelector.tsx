@@ -1,14 +1,14 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import SunIcon from '@/assets/icons/Sun';
 import MoonIcon from '@/assets/icons/Moon';
-import { LocalStorage } from '@/utils/localStorage';
-import { storageKeys } from '@/utils/constants/storageKeys';
 import Magnetic from '@/components/effects/Magnetic';
+import { useThemeStore } from '@/store/theme';
+import { useIsMounted } from '@/hooks/useIsMounted';
 
 export default function ThemeSelector() {
-  const [theme, setTheme] = useState('');
-  const [hasMounted, setHasMounted] = useState(false);
+  const { theme, setTheme } = useThemeStore();
+  const isMounted = useIsMounted();
 
   function updateTheme() {
     setTheme(theme === 'dark' ? 'light' : 'dark');
@@ -22,26 +22,12 @@ export default function ThemeSelector() {
       document.documentElement.classList.add('light');
       document.documentElement.classList.remove('dark');
     }
-
-    if (theme) {
-      LocalStorage.set(storageKeys.THEME, theme === 'dark' ? 'dark' : 'light');
-    }
   }, [theme]);
 
-  useEffect(() => {
-    const localTheme = LocalStorage.get(storageKeys.THEME);
-
-    if (localTheme) {
-      setTheme(localTheme);
-    }
-
-    setHasMounted(true);
-  }, []);
-
-  if (!hasMounted)
+  if (!isMounted)
     return (
       <span className="p-2">
-        <span className="bg-foreground/10 border-foreground/30 flex h-[22px] w-[22px] animate-pulse rounded-full border"></span>
+        <span className="bg-foreground/10 border-foreground/30 flex h-5.5 w-5.5 animate-pulse rounded-full border"></span>
       </span>
     );
 
