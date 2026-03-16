@@ -1,14 +1,17 @@
 import { MouseEventHandler, useEffect, useRef } from 'react';
+import { twMerge } from 'tailwind-merge';
 import Magnetic from '@/components/effects/Magnetic';
 import gsap from 'gsap';
 
 export default function Button({
   children,
   active,
+  className,
   onClick,
 }: {
   children: string;
   active?: boolean;
+  className?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }) {
   const circle = useRef(null);
@@ -36,9 +39,12 @@ export default function Button({
   return (
     <Magnetic>
       <button
-        className={`relative w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg px-4 py-2 text-center ${
-          active ? 'bg-primary text-white' : 'bg-background-2 text-foreground'
-        } transition-colors duration-400 ease-in hover:text-white`}
+        className={twMerge(
+          `relative w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg px-4 py-2 text-center ${
+            active ? 'bg-primary text-white' : 'bg-background-2 text-foreground'
+          } transition-colors duration-400 ease-in hover:text-white`,
+          className,
+        )}
         onMouseEnter={manageMouseEnter}
         onMouseLeave={manageMouseLeave}
         onClick={onClick}
