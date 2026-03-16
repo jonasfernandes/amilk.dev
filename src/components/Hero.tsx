@@ -22,7 +22,7 @@ export default function Hero() {
 
   return (
     <Wrapper>
-      <section className="sm-gap-8 mb-16 grid grid-cols-1 items-center gap-12 sm:grid-cols-[260px_minmax(10%,1fr)] lg:grid-cols-[320px_minmax(20%,1fr)] lg:gap-12">
+      <section className="sm-gap-8 mb-32 grid grid-cols-1 items-center gap-12 sm:grid-cols-[260px_minmax(10%,1fr)] lg:grid-cols-[320px_minmax(20%,1fr)] lg:gap-12">
         <Slide delay={0.2}>
           <div className="group relative hidden h-74 w-74 rounded-full p-4 sm:block md:h-65 md:w-65 lg:h-80 lg:w-80">
             <img className="h-full w-full rounded-full" src={imageProfileUrl} />
