@@ -33,15 +33,17 @@ export default function ThemeSelector() {
 
   return (
     <Magnetic>
-      <button
-        onClick={updateTheme}
-        className={`text-foreground hover:text-primary group: cursor-pointer rounded-full p-2 transition-all duration-300 ${
-          theme === 'dark' ? 'rotate-0' : '-rotate-180'
-        }`}
-        aria-label="Toggle Theme"
-      >
-        {theme === 'dark' ? <MoonIcon /> : <SunIcon />}
-      </button>
+      <div className="flex">
+        <button
+          onClick={updateTheme}
+          className={`text-foreground hover:text-primary group: cursor-pointer rounded-full p-2 transition-all duration-300 ${
+            theme === 'dark' ? 'rotate-0' : '-rotate-180'
+          }`}
+          aria-label="Toggle Theme"
+        >
+          {theme === 'dark' ? <MoonIcon /> : <SunIcon />}
+        </button>
+      </div>
     </Magnetic>
   );
 }

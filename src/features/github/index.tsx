@@ -31,13 +31,14 @@ export default function ContributionGraph() {
             </div>
             <div className="flex flex-row justify-start gap-3 xl:flex-col">
               {years.slice(0, 5).map((year) => (
-                <Button
-                  key={year}
-                  active={calendarYear === year}
-                  onClick={() => setCalendarYear(year === calendarYear ? undefined : year)}
-                >
-                  {year.toString()}
-                </Button>
+                <div key={year}>
+                  <Button
+                    active={calendarYear === year}
+                    onClick={() => setCalendarYear(year === calendarYear ? undefined : year)}
+                  >
+                    {year.toString()}
+                  </Button>
+                </div>
               ))}
             </div>
           </div>

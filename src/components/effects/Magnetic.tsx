@@ -27,11 +27,10 @@ export default function index({ children }: { children: React.ReactElement }) {
     });
   }, []);
 
-  const childrenWithRef = (
-    <div ref={magnetic} className="flex">
-      {children}
-    </div>
+  return React.cloneElement(
+    children as React.ReactElement<{ ref: React.RefObject<HTMLInputElement | null> }>,
+    {
+      ref: magnetic,
+    },
   );
-
-  return React.cloneElement(childrenWithRef);
 }
