@@ -6,12 +6,14 @@ import gsap from 'gsap';
 export default function Button({
   children,
   active,
-  className,
+  customButtonStyles,
+  customFontStyles,
   onClick,
 }: {
   children: string;
   active?: boolean;
-  className?: string;
+  customButtonStyles?: string;
+  customFontStyles?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }) {
   const circle = useRef(null);
@@ -43,14 +45,14 @@ export default function Button({
           `relative w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg px-4 py-2 text-center ${
             active ? 'bg-primary text-white' : 'bg-background-2 text-foreground'
           } transition-colors duration-400 ease-in hover:text-white`,
-          className,
+          customButtonStyles,
         )}
         onMouseEnter={manageMouseEnter}
         onMouseLeave={manageMouseLeave}
         onClick={onClick}
         title={`View Graph for the year ${children}`}
       >
-        <p className="relative z-10 text-sm font-medium">{children}</p>
+        <p className={twMerge('relative z-10 text-sm font-medium', customFontStyles)}>{children}</p>
         <div
           ref={circle}
           className="bg-primary absolute top-full left-1/2 h-[150%] w-full -translate-x-1/2 transform rounded-[50%]"
