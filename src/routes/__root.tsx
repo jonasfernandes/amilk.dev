@@ -1,7 +1,6 @@
 import { Outlet, Scripts, createRootRouteWithContext } from '@tanstack/react-router';
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
 import { TanstackDevtools } from '@tanstack/react-devtools';
-import LocomotiveScroll from 'locomotive-scroll';
 
 import Header from '@/components/Header';
 import { QueryClient } from '@tanstack/react-query';
@@ -13,8 +12,6 @@ export const Route = createRootRouteWithContext<{
 });
 
 function RootDocument() {
-  new LocomotiveScroll();
-
   return (
     <>
       <Header />
