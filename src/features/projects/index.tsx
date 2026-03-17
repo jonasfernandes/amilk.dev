@@ -1,31 +1,64 @@
 import Wrapper from '@/components/Wrapper';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { useTranslation } from 'react-i18next';
+import { slideUp } from './animation';
+import Project from './components/project';
+import Button from '@/components/Button';
 
 export default function Projects() {
   const container = useRef(null);
-  const { t } = useTranslation();
+  const description = useRef(null);
+  const isInView = useInView(description);
+
+  const phrase =
+    'The combination of my passion for design, code & interaction positions me in a unique place in the web design world.';
 
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ['start end', 'end start'],
   });
-  const height = useTransform(scrollYProgress, [0, 0.9], [50, 0]);
+
+  const height = useTransform(scrollYProgress, [0, 0.8], [70, 0]);
 
   return (
-    <div ref={container} className="bg-foreground-2 gap-h mt-30 flex flex-col py-30">
+    <div ref={container} className="bg-foreground-2 gap-h relative mt-30 flex flex-col pt-30">
       <Wrapper>
-        <div className="flex flex-row gap-1">
-          <p className="text-background text-xl font-bold">Some</p>
-          <p className="text-background text-xl font-bold">projects</p>
-          <p className="text-background text-xl font-bold">im</p>
-          <p className="text-background text-xl font-bold">working</p>
-          <p className="text-background text-xl font-bold">on</p>
+        <div className="flex flex-col gap-28">
+          <div ref={description} className="relative w-[70%] leading-snug">
+            {phrase.split(' ').map((word, index) => {
+              return (
+                <span key={index} className="mr-0.75 inline-flex overflow-hidden">
+                  <motion.span
+                    className="mr-0.75 text-3xl"
+                    variants={slideUp}
+                    custom={index}
+                    animate={isInView ? 'open' : 'closed'}
+                    key={index}
+                  >
+                    {word}
+                  </motion.span>
+                </span>
+              );
+            })}
+            <div data-scroll data-scroll-speed="0.2" data-scroll-enable-touch-speed>
+              <Button
+                customButtonStyles="bg-background absolute left-[calc(144%-220px)] h-45 w-45 rounded-full"
+                customFontStyles="text-lg"
+              >
+                About me
+              </Button>
+            </div>
+          </div>
+          <div className="w-full">
+            <ul className="flex flex-col divide-y">
+              <Project title="Personal Site"></Project>
+              <Project title="Plant App"></Project>
+            </ul>
+          </div>
         </div>
       </Wrapper>
       <motion.div style={{ height }} className="relative mt-25">
-        <div className="bg-foreground-2 shadow-[0px 60px 50px rgba(0, 0, 0, 0.748);] absolute -left-[10%] z-10 h-[1550%] w-[120%] rounded-b-[50%]"></div>
+        <div className="bg-foreground-2 absolute -left-[10%] z-10 h-[1550%] w-[120%] rounded-b-[50%]"></div>
       </motion.div>
     </div>
   );
