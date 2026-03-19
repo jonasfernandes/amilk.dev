@@ -24,7 +24,10 @@ export default function Projects() {
   const height = useTransform(scrollYProgress, [0, 0.8], [70, 0]);
 
   return (
-    <div ref={container} className="bg-foreground-2 gap-h relative mt-30 flex flex-col pt-30">
+    <div
+      ref={container}
+      className="bg-secondary text-foreground-2 gap-h relative mt-30 flex flex-col pt-30"
+    >
       <Wrapper>
         <div className="flex flex-col gap-28">
           <div ref={description} className="relative w-[70%] leading-snug">
@@ -63,7 +66,7 @@ export default function Projects() {
         </div>
       </Wrapper>
       <motion.div style={{ height }} className="relative mt-25">
-        <div className="bg-foreground-2 absolute -left-[10%] z-10 h-[1550%] w-[120%] rounded-b-[50%]"></div>
+        <div className="bg-secondary absolute -left-[10%] z-10 h-[1550%] w-[120%] rounded-b-[50%]"></div>
       </motion.div>
     </div>
   );
