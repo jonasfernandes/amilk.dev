@@ -36,19 +36,19 @@ export default function Calendar() {
         <div className="text-foreground flex flex-row items-center gap-1 text-sm">
           <span className="mr-1">{t('github.less')}</span>
           <svg width="13" height="13">
-            <Day date="" level="NONE" weekday={-1} offset={0} />
+            <Day date="" level="NONE" weekday={-1} offset={0} count={0} dummy />
           </svg>
           <svg width="13" height="13">
-            <Day date="" level="FIRST_QUARTILE" weekday={-1} offset={0} />
+            <Day date="" level="FIRST_QUARTILE" weekday={-1} offset={0} count={1} dummy />
           </svg>
           <svg width="13" height="13">
-            <Day date="" level="SECOND_QUARTILE" weekday={-1} offset={0} />
+            <Day date="" level="SECOND_QUARTILE" weekday={-1} offset={0} count={2} dummy />
           </svg>
           <svg width="13" height="13">
-            <Day date="" level="THIRD_QUARTILE" weekday={-1} offset={0} />
+            <Day date="" level="THIRD_QUARTILE" weekday={-1} offset={0} count={3} dummy />
           </svg>
           <svg width="13" height="13">
-            <Day date="" level="FOURTH_QUARTILE" weekday={-1} offset={0} />
+            <Day date="" level="FOURTH_QUARTILE" weekday={-1} offset={0} count={4} dummy />
           </svg>
           <span className="ml-1">{t('github.more')}</span>
         </div>

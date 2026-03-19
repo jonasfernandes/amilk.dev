@@ -10,12 +10,14 @@ export default function Day({
   count,
   weekday,
   offset,
+  dummy = false,
 }: {
   date: string;
   level: string;
   count?: number;
   weekday: number;
   offset: number;
+  dummy?: boolean;
 }) {
   const { loading } = useGithubData();
   const { t } = useTranslation();
@@ -80,7 +82,7 @@ export default function Day({
       }}
       data-tooltip-target="tooltip-default"
     >
-      <title>{contributionsText}</title>
+      {dummy ? <title>{t('github.dummy', { count })}</title> : <title>{contributionsText}</title>}
     </rect>
   );
 }

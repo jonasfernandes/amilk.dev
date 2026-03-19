@@ -14,7 +14,8 @@
     "less": "Menos",
     "more": "Mais",
     "no_contributions_on": "Sem contribuições em {{date}}",
-    "contributions_on": "{{count}} contribuições em {{date}}"
+    "contributions_on": "{{count}} contribuições em {{date}}",
+    "dummy": "GitHub nível {{count}}"
   },
   "projects": {
     "aboutme": "Sobre mim"
