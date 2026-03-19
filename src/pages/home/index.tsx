@@ -6,10 +6,12 @@ import LocomotiveScrollWrapper from '@/components/LocomotiveScrollWrapper';
 
 export default function App() {
   return (
-    <main className="overflow-hidden sm:mt-20 lg:mt-32">
+    <main className="overflow-hidden">
       <LocomotiveScrollWrapper>
-        <Hero />
-        <ContributionGraph />
+        <div className="pb-36 sm:pt-20 lg:pt-32">
+          <Hero />
+          <ContributionGraph />
+        </div>
         <Projects />
         <Contact />
       </LocomotiveScrollWrapper>

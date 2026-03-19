@@ -26,11 +26,11 @@ export default function Projects() {
   return (
     <div
       ref={container}
-      className="bg-secondary text-foreground-2 gap-h relative mt-30 flex flex-col pt-30"
+      className="bg-secondary text-foreground-2 gap-h relative flex flex-col pt-36"
     >
       <Wrapper>
         <div className="flex flex-col gap-28">
-          <div ref={description} className="relative w-[70%] leading-snug">
+          <div ref={description} className="relative z-10 w-[70%] leading-snug">
             {phrase.split(' ').map((word, index) => {
               return (
                 <span key={index} className="mr-0.75 inline-flex overflow-hidden">
