@@ -17,6 +17,6 @@
     "contributions_on": "{{count}} contributions on {{date}}"
   },
   "projects": {
-    "title": "Projects"
+    "aboutme": "About me"
   }
 }

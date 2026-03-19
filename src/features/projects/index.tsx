@@ -4,8 +4,11 @@ import { useRef } from 'react';
 import { slideUp } from './animation';
 import Project from './components/project';
 import Button from '@/components/Button';
+import { Link } from '@tanstack/react-router';
+import { useTranslation } from 'react-i18next';
 
 export default function Projects() {
+  const { t } = useTranslation();
   const container = useRef(null);
   const description = useRef(null);
   const isInView = useInView(description);
@@ -41,12 +44,14 @@ export default function Projects() {
               );
             })}
             <div data-scroll data-scroll-speed="0.2" data-scroll-enable-touch-speed>
-              <Button
-                customButtonStyles="bg-background absolute left-[calc(144%-220px)] h-45 w-45 rounded-full"
-                customFontStyles="text-lg"
-              >
-                About me
-              </Button>
+              <Link to="/about">
+                <Button
+                  customButtonStyles="bg-background absolute left-[calc(144%-220px)] h-45 w-45 rounded-full"
+                  customFontStyles="text-lg"
+                >
+                  {t('projects.aboutme')}
+                </Button>
+              </Link>
             </div>
           </div>
           <div className="w-full">
