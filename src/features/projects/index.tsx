@@ -58,8 +58,9 @@ export default function Projects() {
             </div>
           </div>
           <div className="w-full">
-            <ul className="flex flex-col divide-y">
+            <ul className="flex flex-col [&:has(:hover)>*:not(:hover):not(hr)]:opacity-50">
               <Project title="Personal Site"></Project>
+              <hr className="bg-foreground-2 my-6 h-px border-t-0" />
               <Project title="Plant App"></Project>
             </ul>
           </div>
