@@ -1,7 +1,7 @@
 import Hero from '@/components/Hero';
 import ContributionGraph from '@/features/github';
 import Projects from '@/features/projects';
-import { Contact } from '@/features/contact';
+import Contact from '@/features/contact';
 import LocomotiveScrollWrapper from '@/components/LocomotiveScrollWrapper';
 
 export default function App() {

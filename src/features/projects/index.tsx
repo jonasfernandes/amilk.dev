@@ -26,7 +26,7 @@ export default function Projects() {
   return (
     <div
       ref={container}
-      className="bg-secondary text-foreground-2 gap-h relative flex flex-col pt-36"
+      className="bg-secondary text-foreground-2 gap-h relative z-10 flex flex-col pt-36"
     >
       <Wrapper>
         <div className="flex flex-col gap-28">
