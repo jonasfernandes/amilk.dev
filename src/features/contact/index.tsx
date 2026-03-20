@@ -25,8 +25,8 @@ export default function Contact() {
       ref={container}
       className="bg-background text-foreground-2 bg-noise relative flex flex-col items-center justify-center"
     >
-      <div className="w-full pt-48 pb-48">
-        <div className="border-foreground-2 relative mr-48 ml-48 border-b pb-24">
+      <div className="w-full pt-28 pb-28 sm:pt-48 sm:pb-48">
+        <div className="border-foreground-2 relative mr-20 ml-20 border-b pb-24 sm:mr-48 sm:ml-48">
           <span className="flex items-center gap-4">
             <div className="relative h-24 w-24 overflow-hidden rounded-full">
               <img className="object-cover" alt={'image'} src={imageProfileUrl} />
