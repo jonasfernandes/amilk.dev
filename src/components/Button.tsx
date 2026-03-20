@@ -8,12 +8,14 @@ export default function Button({
   active,
   customButtonStyles,
   customFontStyles,
+  reverse = false,
   onClick,
 }: {
   children: string;
   active?: boolean;
   customButtonStyles?: string;
   customFontStyles?: string;
+  reverse?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }) {
   const circle = useRef(null);
@@ -38,12 +40,17 @@ export default function Button({
     }, 300);
   };
 
+  const colors = {
+    base: reverse ? 'bg-primary' : 'bg-background-2 text-foreground',
+    hover: reverse ? 'bg-background-2 text-foreground' : 'bg-primary',
+  };
+
   return (
     <Magnetic>
       <button
         className={twMerge(
           `relative w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg px-4 py-2 text-center ${
-            active ? 'bg-primary text-white' : 'bg-background-2 text-foreground'
+            active ? 'bg-primary text-white' : colors.base
           } transition-colors duration-400 ease-in hover:text-white`,
           customButtonStyles,
         )}
@@ -55,7 +62,7 @@ export default function Button({
         <p className={twMerge('relative z-10 text-sm font-medium', customFontStyles)}>{children}</p>
         <div
           ref={circle}
-          className="bg-primary absolute top-full left-1/2 h-[150%] w-full -translate-x-1/2 transform rounded-[50%]"
+          className={`${colors.hover} absolute top-full left-1/2 h-[150%] w-full -translate-x-1/2 transform rounded-[50%]`}
         ></div>
       </button>
     </Magnetic>
