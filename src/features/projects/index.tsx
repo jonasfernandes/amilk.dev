@@ -26,7 +26,7 @@ export default function Projects() {
   return (
     <div
       ref={container}
-      className="bg-secondary text-foreground-2 gap-h relative z-10 flex flex-col pt-36"
+      className="bg-secondary text-foreground-2 gap-h bg-noise relative z-10 flex flex-col pt-36"
     >
       <Wrapper>
         <div className="flex flex-col gap-28">
@@ -67,7 +67,7 @@ export default function Projects() {
         </div>
       </Wrapper>
       <motion.div style={{ height }} className="relative mt-25">
-        <div className="bg-secondary absolute -left-[10%] z-10 h-[1550%] w-[120%] rounded-b-[50%]"></div>
+        <div className="bg-secondary bg-noise absolute -left-[10%] z-10 h-[1550%] w-[120%] rounded-b-[50%]"></div>
       </motion.div>
     </div>
   );

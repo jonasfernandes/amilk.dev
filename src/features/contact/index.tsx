@@ -23,7 +23,7 @@ export default function Contact() {
     <motion.div
       style={{ y }}
       ref={container}
-      className="bg-background text-foreground-2 relative flex flex-col items-center justify-center"
+      className="bg-background text-foreground-2 bg-noise relative flex flex-col items-center justify-center"
     >
       <div className="w-full pt-48 pb-48">
         <div className="border-foreground-2 relative mr-48 ml-48 border-b pb-24">

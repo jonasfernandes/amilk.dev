@@ -43,6 +43,12 @@
   font-display: swap;
 }
 
+@utility bg-noise {
+  background-image: url(./assets/images/noise.png);
+  background-size: 200px 200px;
+  background-position: 0 0;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -62,10 +68,6 @@ body {
   font-family: 'Proxima Nova', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  background-image: url(./assets/images/noise.png);
-  background-size: 200px 200px;
-  background-position: 0 0;
 }
 
 :root {

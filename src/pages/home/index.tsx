@@ -8,7 +8,7 @@ export default function App() {
   return (
     <main className="overflow-hidden">
       <LocomotiveScrollWrapper>
-        <div className="pb-36 sm:pt-20 lg:pt-32">
+        <div className="bg-noise pb-36 sm:pt-20 lg:pt-32">
           <Hero />
           <ContributionGraph />
         </div>
