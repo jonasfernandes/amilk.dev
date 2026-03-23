@@ -4,6 +4,7 @@ import Button from '@/components/Button';
 import { getProfile } from '@/services/profile';
 import { urlFor } from '@/utils/sanityImageUrl';
 import Wrapper from '@/components/Wrapper';
+import ContactLinks from './components/ContactLinks';
 
 const getProfilePromise = getProfile();
 
@@ -40,13 +41,7 @@ export default function Contact() {
               style={{ x }}
               className="absolute top-[calc(100%-40px)] left-[calc(100%-240px)] z-10 sm:top-[calc(100%-75px)] sm:left-[calc(100%-400px)]"
             >
-              <Button
-                reverse
-                customButtonStyles="sm:h-45 sm:w-45 h-28 w-28 absolute rounded-full"
-                customFontStyles="text-base font-light relative"
-              >
-                Get in touch
-              </Button>
+              <ContactLinks />
             </motion.div>
             <motion.svg
               style={{ rotate: 90, scale: 2 }}
