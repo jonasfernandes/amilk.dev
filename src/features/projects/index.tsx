@@ -30,7 +30,7 @@ export default function Projects() {
     >
       <Wrapper>
         <div className="flex flex-col gap-28">
-          <div ref={description} className="relative z-10 w-[90%] leading-snug sm:w-[70%]">
+          <div ref={description} className="relative z-10 w-[88%] leading-snug sm:w-[70%]">
             {phrase.split(' ').map((word, index) => {
               return (
                 <span key={index} className="mr-0.75 inline-flex overflow-hidden">
@@ -49,7 +49,7 @@ export default function Projects() {
             <div data-scroll data-scroll-speed="0.2" data-scroll-enable-touch-speed>
               <Link to="/about">
                 <Button
-                  customButtonStyles="bg-background absolute left-[calc(144%-220px)] sm:left-[calc(144%-220px)] sm:h-45 sm:w-45 h-28 w-28 rounded-full"
+                  customButtonStyles="bg-background absolute left-[calc(144%-220px)] sm:h-45 sm:w-45 h-28 w-28 rounded-full"
                   customFontStyles="text-lg"
                 >
                   {t('projects.aboutme')}
