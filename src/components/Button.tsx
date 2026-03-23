@@ -2,6 +2,7 @@ import { MouseEventHandler, useEffect, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import Magnetic from '@/components/effects/Magnetic';
 import gsap from 'gsap';
+import { isMobile } from 'react-device-detect';
 
 export default function Button({
   children,
@@ -30,11 +31,13 @@ export default function Button({
   }, []);
 
   const manageMouseEnter = () => {
+    if (isMobile) return;
     if (timeoutId) clearTimeout(timeoutId);
     timeline.current?.tweenFromTo('enter', 'exit');
   };
 
   const manageMouseLeave = () => {
+    if (isMobile) return;
     timeoutId = setTimeout(() => {
       timeline.current?.play();
     }, 300);

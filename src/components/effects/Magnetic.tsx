@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { isMobile } from 'react-device-detect';
 
 export default function index({ children }: { children: React.ReactElement }) {
   const magnetic = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    if (isMobile) return;
     const xTo = gsap.quickTo(magnetic.current, 'x', { duration: 1, ease: 'elastic.out(1, 0.3)' });
     const yTo = gsap.quickTo(magnetic.current, 'y', { duration: 1, ease: 'elastic.out(1, 0.3)' });
 
