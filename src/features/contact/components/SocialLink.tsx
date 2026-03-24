@@ -4,9 +4,11 @@ import { twMerge } from 'tailwind-merge';
 
 export default function SocialLink({
   children,
+  url,
   classEffect,
 }: {
   children: React.ReactNode;
+  url: string;
   classEffect: string;
 }) {
   return (
@@ -17,9 +19,14 @@ export default function SocialLink({
       )}
     >
       <Magnetic>
-        <div className="flex h-full w-full cursor-pointer items-center justify-center text-2xl">
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex h-full w-full cursor-pointer items-center justify-center text-2xl"
+        >
           {children}
-        </div>
+        </a>
       </Magnetic>
     </div>
   );

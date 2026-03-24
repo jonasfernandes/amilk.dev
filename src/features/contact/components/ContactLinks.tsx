@@ -7,25 +7,25 @@ export default function ContactLinks() {
   const socialLinks = [
     {
       name: 'GitHub',
-      url: 'https://github.com',
+      url: 'https://github.com/jonasfernandes',
       effect:
         'sm:peer-checked:-translate-x-29 sm:peer-checked:-translate-y-25 peer-checked:-translate-x-18 peer-checked:-translate-y-19',
       icon: <FaGithub className="text-2xl sm:text-3xl" />,
     },
     {
       name: 'LinkedIn',
-      url: 'https://linkedin.com',
+      url: 'https://www.linkedin.com/in/jonasfernandes/',
       effect: 'sm:peer-checked:-translate-y-38 peer-checked:-translate-y-26',
       icon: <FaLinkedin className="text-2xl sm:text-3xl" />,
     },
     {
       name: 'Email',
-      url: 'https://instagram.com',
+      url: 'mailto:jonas.amilk@gmail.com',
       effect:
         'sm:peer-checked:translate-x-29 sm:peer-checked:-translate-y-25 peer-checked:translate-x-18 peer-checked:-translate-y-19',
       icon: <MdAlternateEmail className="text-2xl sm:text-3xl" />,
     },
-  ];
+  ] as const;
 
   return (
     <>
@@ -58,9 +58,9 @@ export default function ContactLinks() {
           </label>
         </Magnetic>
 
-        {socialLinks.map((social) => (
-          <SocialLink key={social.name} classEffect={social.effect}>
-            {social.icon}
+        {socialLinks.map(({ name, effect, url, icon }) => (
+          <SocialLink key={name} classEffect={effect} url={url}>
+            {icon}
           </SocialLink>
         ))}
       </div>
