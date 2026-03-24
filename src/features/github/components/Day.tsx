@@ -82,7 +82,7 @@ export default function Day({
       }}
       data-tooltip-target="tooltip-default"
     >
-      {dummy ? <title>{t('github.dummy', { count })}</title> : <title>{contributionsText}</title>}
+      <title>{dummy ? t('github.dummy', { count }) : contributionsText}</title>
     </rect>
   );
 }

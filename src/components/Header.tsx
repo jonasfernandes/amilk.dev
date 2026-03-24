@@ -8,7 +8,7 @@ export default function Header() {
   const { t } = useTranslation();
 
   return (
-    <header className="text-foreground flex items-center justify-between gap-2 p-4">
+    <header className="text-foreground bg-noise flex items-center justify-between gap-2 p-4">
       <div className="font-bold">
         <Link to="/" className="px-2 py-1 font-[Major_Mono] text-xl">
           Amilk

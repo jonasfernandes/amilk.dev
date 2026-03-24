@@ -4,8 +4,9 @@ import { urlFor } from '@/utils/sanityImageUrl';
 import Slide from '@/components/effects/Slide';
 import { Trans } from 'react-i18next';
 import { getProfile } from '@/services/profile';
-import { use } from 'react';
+import { Activity, use } from 'react';
 import Wrapper from './Wrapper';
+import { isMobile } from 'react-device-detect';
 
 const getProfilePromise = getProfile();
 
@@ -26,8 +27,10 @@ export default function Hero() {
         <Slide delay={0.2}>
           <div className="group relative hidden h-74 w-74 rounded-full p-4 sm:block md:h-65 md:w-65 lg:h-80 lg:w-80">
             <img className="h-full w-full rounded-full" src={imageProfileUrl} />
-            <span className="border-primary absolute top-1/2 left-1/2 h-[90%] w-[90%] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 transition-all duration-300 group-hover:h-full group-hover:w-full"></span>
-            <span className="bg-primary absolute top-1/2 left-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 scale-100 rounded-full transition-all duration-300 group-hover:scale-0"></span>
+            <Activity mode={isMobile ? 'hidden' : 'visible'}>
+              <span className="border-primary absolute top-1/2 left-1/2 h-[90%] w-[90%] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 transition-all duration-300 group-hover:h-full group-hover:w-full"></span>
+              <span className="bg-primary absolute top-1/2 left-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 scale-100 rounded-full transition-all duration-300 group-hover:scale-0"></span>
+            </Activity>
           </div>
         </Slide>
         <div className="w-full">
