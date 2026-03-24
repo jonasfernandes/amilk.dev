@@ -1,6 +1,32 @@
 import Magnetic from '@/components/effects/Magnetic';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { MdAlternateEmail } from 'react-icons/md';
+import SocialLink from './SocialLink';
 
-const ContactLinks = () => {
+export default function ContactLinks() {
+  const socialLinks = [
+    {
+      name: 'GitHub',
+      url: 'https://github.com',
+      effect:
+        'sm:peer-checked:-translate-x-29 sm:peer-checked:-translate-y-25 peer-checked:-translate-x-18 peer-checked:-translate-y-19',
+      icon: <FaGithub className="text-2xl sm:text-3xl" />,
+    },
+    {
+      name: 'LinkedIn',
+      url: 'https://linkedin.com',
+      effect: 'sm:peer-checked:-translate-y-38 peer-checked:-translate-y-26',
+      icon: <FaLinkedin className="text-2xl sm:text-3xl" />,
+    },
+    {
+      name: 'Email',
+      url: 'https://instagram.com',
+      effect:
+        'sm:peer-checked:translate-x-29 sm:peer-checked:-translate-y-25 peer-checked:translate-x-18 peer-checked:-translate-y-19',
+      icon: <MdAlternateEmail className="text-2xl sm:text-3xl" />,
+    },
+  ];
+
   return (
     <>
       <svg className="absolute hidden">
@@ -32,20 +58,12 @@ const ContactLinks = () => {
           </label>
         </Magnetic>
 
-        <div
-          className={`bg-primary absolute h-16 w-16 rounded-full transition-all duration-500 ease-in-out peer-checked:-translate-x-30 peer-checked:-translate-y-24 peer-checked:scale-110`}
-        />
-
-        <div
-          className={`bg-primary absolute h-16 w-16 rounded-full transition-all duration-500 ease-in-out peer-checked:-translate-y-38 peer-checked:scale-110`}
-        />
-
-        <div
-          className={`bg-primary absolute h-16 w-16 rounded-full transition-all duration-500 ease-in-out peer-checked:translate-x-30 peer-checked:-translate-y-24 peer-checked:scale-110`}
-        />
+        {socialLinks.map((social) => (
+          <SocialLink key={social.name} classEffect={social.effect}>
+            {social.icon}
+          </SocialLink>
+        ))}
       </div>
     </>
   );
-};
-
-export default ContactLinks;
+}
